@@ -5,6 +5,29 @@
 import arcade
 import arcade.gui
 
+BUTTON_WIDTH = 200
+BUTTON_PADDING = 20
+
+class TemplateView(arcade.View):
+    def __init__(self):
+        super().__init__()
+
+        self.manager = arcade.gui.UIManager()
+        self.manager.enable()
+
+        # Add buttons and UI objects
+
+    def on_show_view(self):
+        pass
+
+    def on_draw(self):
+        pass
+
+
+    # Add button functions
+
+    
+
 class MainMenuView(arcade.View):
     def __init__(self):
         super().__init__()
@@ -16,19 +39,22 @@ class MainMenuView(arcade.View):
         self.v_box = arcade.gui.UIBoxLayout()
 
         # Fetch current window context
-        self.window = arcade.get_window()
         self.width = self.window.width
         self.height = self.window.height
         
         self.background = arcade.load_texture("resources/gui/ph_main_menu.jpg")
 
         # Create UI buttons
-        start_button = arcade.gui.UIFlatButton(text="New Game", width=160)
-        self.v_box.add(start_button.with_space_around(bottom=20))
+        start_button = arcade.gui.UIFlatButton(text="New Game", width=BUTTON_WIDTH)
+        self.v_box.add(start_button.with_space_around(bottom=BUTTON_PADDING))
         start_button.on_click = self.click_start
 
-        quit_button = arcade.gui.UIFlatButton(text="Quit Game", width=160)
-        self.v_box.add(quit_button.with_space_around(bottom=20))
+        options_button = arcade.gui.UIFlatButton(text="Options", width=BUTTON_WIDTH)
+        self.v_box.add(options_button.with_space_around(bottom=BUTTON_PADDING))
+        # options_button.on_click = self.click_options
+
+        quit_button = arcade.gui.UIFlatButton(text="Quit Game", width=BUTTON_WIDTH)
+        self.v_box.add(quit_button.with_space_around(bottom=BUTTON_PADDING))
         quit_button.on_click = self.click_quit
 
         self.manager.add(

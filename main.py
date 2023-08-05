@@ -8,6 +8,12 @@ from game import menu
 WIDTH = 1360
 HEIGHT = 768
 
+class GameController():
+    def __init__(self, game_config):
+        # set game params from config
+        pass
+        
+
 def main():
     window = arcade.Window(WIDTH, HEIGHT, "StarSkipp")
     
