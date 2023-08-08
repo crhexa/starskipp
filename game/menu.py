@@ -7,6 +7,7 @@ Starting view upon application start
 import arcade
 import arcade.gui
 from game import state
+from game import region
 
 BUTTON_WIDTH = 200
 BUTTON_PADDING = 20
@@ -122,11 +123,19 @@ class PlayView(arcade.View):
     def __init__(self, controller: GameController, game_state: state.GameState):
         super().__init__()
         self.controller = controller
+        self.game_state = game_state
 
         self.manager = arcade.gui.UIManager()
         self.manager.enable()
 
         # Add buttons and UI objects
+
+
+
+        
+
+
+        
         
 
     def on_show_view(self):
@@ -134,6 +143,6 @@ class PlayView(arcade.View):
 
     def on_draw(self):
         self.clear()
-
+        self.game_state.draw_system()
 
     # Add button functions

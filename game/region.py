@@ -1,4 +1,11 @@
 """
+Static objects to serve as game levels
+
+"""
+import arcade
+
+
+"""
 A region is group of stars in relatively close proximity.
 
 """
@@ -12,6 +19,8 @@ class Region():
         system = System(name, x, y)
         system.region = self
         self.systems.append(system)
+
+        return system
 
 
 
@@ -28,14 +37,17 @@ class System():
 
         self.star = None
         self.region = None
-        self.bodies = []
+        self.objects = []
     
 
     def set_star(self, name, type):
         self.star = Star(name, type)
 
 
-
+    def draw(self):
+        self.star.draw(400, 400)
+        for body in self.objects:
+            body.draw()
 
 
 
@@ -49,6 +61,10 @@ class Star():
         self.name = name
         self.type = type
 
+    def draw(self, x, y):
+        arcade.draw_circle_filled(x, y, 200, 
+                                  arcade.color.YELLOW_ORANGE)
+
     
     
 """
@@ -59,5 +75,9 @@ class StarObject():
     def __init__(self, x: float, y: float):
         self.x = x
         self.y = y
+
+    def draw():
+        # arcade.draw_circle_filled()
+        pass
 
 
