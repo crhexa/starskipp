@@ -32,8 +32,11 @@ func _process(delta):
 	if Input.is_action_pressed("decelerate"):
 		pass
 	
+	var speed = velocity.length_squared()
+	$GPUParticles2D.speed_scale = clamp(log(speed), 0.01, 60)
 	position += velocity * delta
 	
+	# $Camera2D/Label.text = str(snappedf(0.01 * sqrt(speed), 0.01))
 	
 func start(pos):
 	position = pos

@@ -51,12 +51,13 @@ shape = SubResource("CircleShape2D_0tgg5")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 z_index = -1
-amount = 256
+amount = 512
 process_material = SubResource("ParticleProcessMaterial_2dto6")
 texture = ExtResource("4_qo8a5")
-lifetime = 10.0
-preprocess = 30.0
+lifetime = 60.0
+preprocess = 60.0
 randomness = 0.51
+trail_lifetime = 1.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -70,3 +71,4 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
