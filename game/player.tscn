@@ -72,3 +72,11 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="Camera2D/CanvasLayer"]
+z_index = 1
+z_as_relative = false
+offset_right = 40.0
+offset_bottom = 23.0
+size_flags_horizontal = 3
+size_flags_vertical = 1

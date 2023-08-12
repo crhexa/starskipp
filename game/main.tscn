@@ -10,6 +10,3 @@ script = ExtResource("1_qmroq")
 
 [node name="StartPosition" type="Marker2D" parent="."]
 position = Vector2(960, 540)
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = -1
