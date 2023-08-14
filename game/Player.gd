@@ -1,7 +1,5 @@
 extends Area2D
 
-var POS2PI = deg_to_rad(360)
-
 # Privately accessed properties
 var screen_size
 
@@ -27,8 +25,8 @@ func _process(delta):
 	
 	
 	# Update public variables
-	rads = fposmod(rotation - (PI / 2), POS2PI)
-	diff = velocity.rotated(POS2PI).angle_to(Vector2.from_angle(rads))
+	rads = fposmod(rotation - (PI / 2), TAU)
+	diff = velocity.rotated(TAU).angle_to(Vector2.from_angle(rads))
 	speed = velocity.length_squared()
 
 
