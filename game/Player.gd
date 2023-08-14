@@ -15,11 +15,6 @@ var speed: float = 0						# Magnitude of velocity vector
 
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	screen_size = get_viewport_rect().size
-
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	
@@ -57,7 +52,7 @@ func _process(delta):
 	# Update player ship GUI
 	$Camera2D/CanvasLayer/Label.text = str(snappedf(diff, 0.1)) + " / " + str(snappedf(rads, 0.1))
 		
-	$GPUParticles2D.speed_scale = clamp(log(speed), 0.01, 60)
+	$BGStarEffect.speed_scale = clamp(log(speed), 0.01, 60)
 	
 	
 	

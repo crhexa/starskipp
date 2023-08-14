@@ -13,3 +13,4 @@ func _process(delta):
 
 func new_game():
 	$Player.start($StartPosition.position)
+	$Body.primary = $Star

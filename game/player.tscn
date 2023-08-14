@@ -49,7 +49,7 @@ sprite_frames = SubResource("SpriteFrames_34nws")
 position = Vector2(0, 15)
 shape = SubResource("CircleShape2D_0tgg5")
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+[node name="BGStarEffect" type="GPUParticles2D" parent="."]
 z_index = -1
 amount = 512
 process_material = SubResource("ParticleProcessMaterial_2dto6")

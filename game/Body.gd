@@ -1,17 +1,18 @@
-class_name Body
-extends Node2D
+extends Area2D
 
 var t = 0
 
-var primary: Body
-var orbital_radius: float
-var orbital_speed: float
+@export var primary: Area2D
+@export var orbital_radius: float = 1000
+@export var orbital_speed: float = 0.1
+
 
 
 func _process(delta): 
 	t += delta
 	
-	position += Vector2(
+	position = primary.position + Vector2(
 		sin(t * orbital_speed) * orbital_radius,
 		cos(t * orbital_speed) * orbital_radius
 	)
+

@@ -1,12 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://ddvxvlcel3cmo"]
+[gd_scene load_steps=5 format=3 uid="uid://ddvxvlcel3cmo"]
 
 [ext_resource type="Script" path="res://game/Main.gd" id="1_qmroq"]
 [ext_resource type="PackedScene" uid="uid://dwlfk8cmvodkl" path="res://game/player.tscn" id="2_jl3tl"]
+[ext_resource type="PackedScene" uid="uid://drhu33o5sn5ci" path="res://game/star.tscn" id="3_a1qcq"]
+[ext_resource type="PackedScene" uid="uid://b4yxfj8xrfrku" path="res://game/body.tscn" id="4_7v3f7"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_qmroq")
 
 [node name="Player" parent="." instance=ExtResource("2_jl3tl")]
+z_index = 1
 
 [node name="StartPosition" type="Marker2D" parent="."]
 position = Vector2(960, 540)
+
+[node name="Star" parent="." instance=ExtResource("3_a1qcq")]
+
+[node name="Body" parent="." node_paths=PackedStringArray("primary") instance=ExtResource("4_7v3f7")]
+primary = NodePath("../Star")
