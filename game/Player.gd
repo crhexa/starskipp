@@ -11,7 +11,7 @@ var speed: float = 0						# Magnitude of velocity vector
 
 # Editor properties
 @export var acceleration: float = 98
-@export var turning_speed: float = 2
+@export var turning_speed: float = 1
 
 
 
