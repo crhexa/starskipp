@@ -61,6 +61,9 @@ func add_player():
 	player.start(player_position)
 	
 	
+func _process(_delta):
 	
+	if Input.is_action_just_pressed("toggle_pause"):
+		get_tree().paused = not get_tree().paused
 	
 	

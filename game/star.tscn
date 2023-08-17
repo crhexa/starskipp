@@ -6,6 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_g78qh"]
 
 [node name="Star" type="Area2D"]
+process_mode = 1
 script = ExtResource("1_7ar3c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

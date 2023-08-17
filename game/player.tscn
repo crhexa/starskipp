@@ -39,6 +39,7 @@ orbit_velocity_max = 0.0
 color_ramp = SubResource("GradientTexture1D_l1feo")
 
 [node name="Player" type="Area2D"]
+process_mode = 1
 script = ExtResource("1_i6txu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
