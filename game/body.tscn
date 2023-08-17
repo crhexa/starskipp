@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b4yxfj8xrfrku"]
 
 [ext_resource type="Script" path="res://game/Body.gd" id="1_x0toa"]
-[ext_resource type="Texture2D" uid="uid://dd3vs5xku4yog" path="res://sprites/earth.png" id="2_t3578"]
+[ext_resource type="Texture2D" uid="uid://b44602b2o2c4b" path="res://sprites/rocky.png" id="2_qlo4m"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_22bbx"]
 
@@ -12,4 +12,5 @@ script = ExtResource("1_x0toa")
 shape = SubResource("CircleShape2D_22bbx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_t3578")
+modulate = Color(0.968627, 0.423529, 0.219608, 1)
+texture = ExtResource("2_qlo4m")

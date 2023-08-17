@@ -27,7 +27,7 @@ func generate(sz: int = 6, sp : float = 500) -> void:
 	
 	# Generate star
 	star = star_prototype.instantiate()
-	star.type = Star.TYPE.CLASS_G
+	star.type = Star.Class.CLASS_G
 	add_child(star)
 	
 	

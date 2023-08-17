@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://drhu33o5sn5ci"]
 
 [ext_resource type="Script" path="res://game/Star.gd" id="1_7ar3c"]
-[ext_resource type="Texture2D" uid="uid://cl5kpnnmunpox" path="res://sprites/g_star.png" id="2_55m6q"]
+[ext_resource type="Texture2D" uid="uid://c5rtxpsylhvrb" path="res://sprites/star.png" id="2_gol2g"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g78qh"]
 
@@ -12,4 +12,5 @@ script = ExtResource("1_7ar3c")
 shape = SubResource("CircleShape2D_g78qh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_55m6q")
+modulate = Color(1, 0.717647, 0, 1)
+texture = ExtResource("2_gol2g")
