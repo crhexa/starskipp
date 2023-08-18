@@ -1,18 +1,18 @@
 [gd_scene load_steps=10 format=3 uid="uid://dwlfk8cmvodkl"]
 
 [ext_resource type="Script" path="res://game/Player.gd" id="1_i6txu"]
-[ext_resource type="Texture2D" uid="uid://dnaapkwwl03u5" path="res://sprites/player.png" id="2_xpiro"]
-[ext_resource type="Texture2D" uid="uid://b0cxytc3dby57" path="res://sprites/player_moving.png" id="3_y16fv"]
-[ext_resource type="Texture2D" uid="uid://caeshx5gcam3d" path="res://sprites/bg_star.png" id="4_qo8a5"]
+[ext_resource type="Texture2D" uid="uid://dnaapkwwl03u5" path="res://assets/player.png" id="2_ov4d6"]
+[ext_resource type="Texture2D" uid="uid://b0cxytc3dby57" path="res://assets/player_moving.png" id="3_agsq7"]
+[ext_resource type="Texture2D" uid="uid://caeshx5gcam3d" path="res://assets/bg_star.png" id="4_wev4e"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_34nws"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_xpiro")
+"texture": ExtResource("2_ov4d6")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_y16fv")
+"texture": ExtResource("3_agsq7")
 }],
 "loop": true,
 "name": &"default",
@@ -54,7 +54,7 @@ shape = SubResource("CircleShape2D_0tgg5")
 z_index = -1
 amount = 512
 process_material = SubResource("ParticleProcessMaterial_2dto6")
-texture = ExtResource("4_qo8a5")
+texture = ExtResource("4_wev4e")
 lifetime = 60.0
 preprocess = 60.0
 randomness = 0.51

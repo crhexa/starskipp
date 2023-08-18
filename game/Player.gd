@@ -16,8 +16,8 @@ var speed: float = 0						# Magnitude of velocity vector
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	
+func _process(_delta):
+	var delta = TimeController.delta_t
 	
 	# Update public variables
 	rads = fposmod(rotation - (PI / 2), TAU)

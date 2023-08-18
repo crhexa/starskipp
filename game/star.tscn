@@ -1,9 +1,29 @@
-[gd_scene load_steps=4 format=3 uid="uid://drhu33o5sn5ci"]
+[gd_scene load_steps=7 format=3 uid="uid://drhu33o5sn5ci"]
 
 [ext_resource type="Script" path="res://game/Star.gd" id="1_7ar3c"]
-[ext_resource type="Texture2D" uid="uid://c5rtxpsylhvrb" path="res://sprites/star.png" id="2_gol2g"]
+[ext_resource type="Shader" path="res://addons/PixelPlanet/Star.gdshader" id="2_2bmnf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g78qh"]
+
+[sub_resource type="Gradient" id="Gradient_oib2t"]
+offsets = PackedFloat32Array(0, 0.33, 0.66, 1)
+colors = PackedColorArray(0.96, 1, 0.91, 1, 0.47, 0.84, 0.76, 1, 0.109804, 0.568627, 0.65098, 1, 0.01, 0.24, 0.37, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_tkgmo"]
+gradient = SubResource("Gradient_oib2t")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3vqnk"]
+shader = ExtResource("2_2bmnf")
+shader_parameter/pixels = 100.0
+shader_parameter/time_speed = 0.05
+shader_parameter/time = 51.877
+shader_parameter/rotation = 0.0
+shader_parameter/should_dither = true
+shader_parameter/seed = 4.837
+shader_parameter/size = 4.463
+shader_parameter/OCTAVES = 4
+shader_parameter/TILES = 1.0
+shader_parameter/colorramp = SubResource("GradientTexture1D_tkgmo")
 
 [node name="Star" type="Area2D"]
 process_mode = 1
@@ -12,6 +32,16 @@ script = ExtResource("1_7ar3c")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_g78qh")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(1, 0.717647, 0, 1)
-texture = ExtResource("2_gol2g")
+[node name="MainShader" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_3vqnk")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -200.0
+offset_right = 200.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2

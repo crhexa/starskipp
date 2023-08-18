@@ -2,12 +2,17 @@ extends Node
 
 
 var time = 0
-var timescale = 1
+var timescale : float = 1
+var delta_t
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _ready():
+	process_priority = -1
+
 func _process(delta):
-	time += delta * timescale
+	delta_t = delta * timescale
+	time += delta_t
 
 
-func pause():
-	timescale = 0
+# Instance methods
+func set_timescale(scale : float):
+	timescale = scale

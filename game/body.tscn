@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b4yxfj8xrfrku"]
 
 [ext_resource type="Script" path="res://game/Body.gd" id="1_x0toa"]
-[ext_resource type="Texture2D" uid="uid://b44602b2o2c4b" path="res://sprites/rocky.png" id="2_qlo4m"]
+[ext_resource type="Material" uid="uid://8v0ph1miwemo" path="res://assets/materials/red_terran.tres" id="2_iush5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_22bbx"]
 
@@ -12,6 +12,16 @@ script = ExtResource("1_x0toa")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_22bbx")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.968627, 0.423529, 0.219608, 1)
-texture = ExtResource("2_qlo4m")
+[node name="MainShader" type="ColorRect" parent="."]
+material = ExtResource("2_iush5")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2

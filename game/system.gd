@@ -7,8 +7,8 @@ var spacing : float			# Average space between the orbits of bodies
 
 # Instance variables
 var player_position := Vector2.ZERO
-var star : Star
-var bodies : Array[Body]
+var star : Node2D
+var bodies : Array[Node2D]
 
 
 # Called when the node enters the scene tree for the first time.
@@ -65,5 +65,14 @@ func _process(_delta):
 	
 	if Input.is_action_just_pressed("toggle_pause"):
 		get_tree().paused = not get_tree().paused
+		TimeController.set_timescale(0.0)
+		
+	
+	elif Input.is_action_just_pressed("time_speed_up"):
+		TimeController.set_timescale(4.0)
+		
+		
+	elif Input.is_action_just_pressed("time_slow_down"):
+		TimeController.set_timescale(1.0)
 	
 	
