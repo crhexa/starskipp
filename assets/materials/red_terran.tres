@@ -1,0 +1,26 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://8v0ph1miwemo"]
+
+[ext_resource type="Shader" path="res://addons/PixelPlanet/DryTerran.gdshader" id="1_g7ite"]
+
+[sub_resource type="Gradient" id="Gradient_ll1ki"]
+offsets = PackedFloat32Array(0, 0.25, 0.5, 0.75, 1)
+colors = PackedColorArray(100, 0.54, 0.2, 1, 0.92, 0.27, 0.22, 1, 0.68, 0.18, 0.27, 1, 0.32, 0.2, 0.25, 1, 0.24, 0.16, 0.21, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_bvgjs"]
+gradient = SubResource("Gradient_ll1ki")
+
+[resource]
+shader = ExtResource("1_g7ite")
+shader_parameter/pixels = 100.0
+shader_parameter/rotation = 0.0
+shader_parameter/light_origin = Vector2(0.4, 0.3)
+shader_parameter/light_distance1 = 0.362
+shader_parameter/light_distance2 = 0.525
+shader_parameter/time_speed = 0.1
+shader_parameter/dither_size = 2.0
+shader_parameter/size = 8.0
+shader_parameter/OCTAVES = 3
+shader_parameter/seed = 1.175
+shader_parameter/time = 0.0
+shader_parameter/should_dither = true
+shader_parameter/colors = SubResource("GradientTexture1D_bvgjs")
