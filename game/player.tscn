@@ -1,9 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://dwlfk8cmvodkl"]
+[gd_scene load_steps=6 format=3 uid="uid://dwlfk8cmvodkl"]
 
 [ext_resource type="Script" path="res://game/Player.gd" id="1_i6txu"]
 [ext_resource type="Texture2D" uid="uid://dnaapkwwl03u5" path="res://assets/player.png" id="2_ov4d6"]
 [ext_resource type="Texture2D" uid="uid://b0cxytc3dby57" path="res://assets/player_moving.png" id="3_agsq7"]
-[ext_resource type="Texture2D" uid="uid://caeshx5gcam3d" path="res://assets/bg_star.png" id="4_wev4e"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_34nws"]
 animations = [{
@@ -22,22 +21,6 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_0tgg5"]
 radius = 74.0068
 
-[sub_resource type="Gradient" id="Gradient_jpqe3"]
-offsets = PackedFloat32Array(0, 0.162963, 0.844444, 1)
-colors = PackedColorArray(0, 0, 0, 1, 0.980392, 0.984314, 0.980392, 1, 0.981431, 0.98383, 0.980252, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_l1feo"]
-gradient = SubResource("Gradient_jpqe3")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2dto6"]
-emission_shape = 3
-emission_box_extents = Vector3(1920, 1080, 1)
-particle_flag_disable_z = true
-gravity = Vector3(0, 0, 0)
-orbit_velocity_min = 0.0
-orbit_velocity_max = 0.0
-color_ramp = SubResource("GradientTexture1D_l1feo")
-
 [node name="Player" type="Area2D"]
 process_mode = 1
 script = ExtResource("1_i6txu")
@@ -50,32 +33,12 @@ sprite_frames = SubResource("SpriteFrames_34nws")
 position = Vector2(0, 15)
 shape = SubResource("CircleShape2D_0tgg5")
 
-[node name="BGStarEffect" type="GPUParticles2D" parent="."]
-z_index = -1
-amount = 512
-process_material = SubResource("ParticleProcessMaterial_2dto6")
-texture = ExtResource("4_wev4e")
-lifetime = 60.0
-preprocess = 60.0
-randomness = 0.51
-trail_lifetime = 1.0
-
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
 layer = -1
 
-[node name="ColorRect" type="ColorRect" parent="Camera2D/CanvasLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-metadata/_edit_lock_ = true
-
 [node name="Label" type="Label" parent="Camera2D/CanvasLayer"]
-z_index = 1
 z_as_relative = false
 offset_right = 40.0
 offset_bottom = 23.0

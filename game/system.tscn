@@ -1,7 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://bvn42dkbc7qvg"]
+[gd_scene load_steps=3 format=3 uid="uid://bvn42dkbc7qvg"]
 
 [ext_resource type="Script" path="res://game/System.gd" id="1_p21j8"]
+[ext_resource type="Texture2D" uid="uid://8b5q5pqom7n6" path="res://assets/sprites/background.png" id="2_3fxwv"]
 
 [node name="System" type="Node"]
 process_mode = 3
 script = ExtResource("1_p21j8")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+offset = Vector2(1920, 1080)
+transform = Transform2D(1, 0, 0, 1, 1920, 1080)
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.25, 0.25)
+motion_mirroring = Vector2(3840, 2160)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource("2_3fxwv")

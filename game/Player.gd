@@ -51,11 +51,7 @@ func _process(_delta):
 	
 	# Update player ship GUI
 	$Camera2D/CanvasLayer/Label.text = str(snappedf(diff, 0.1)) + " / " + str(snappedf(rads, 0.1))
-		
-	$BGStarEffect.speed_scale = clamp(log(speed), 0.01, 60)
-	
-	
-	
+			
 	
 func start(pos):
 	position = pos
