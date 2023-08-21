@@ -6,6 +6,8 @@ signal year_passed
 
 var time : float = 0
 var timescale : float = 1
+var old_timescale : float = 0
+
 var timer : float = 0
 var delta_t : float
 
@@ -32,19 +34,19 @@ class Date:
 	
 	# Advance tick system by one day
 	func advance():
-		emit_signal("day_passed")
+		TimeController.day_passed.emit()
 		if day < 30:
 			day += 1
 			
 		else: # Carry-over day
 			day = 1
-			emit_signal("month_passed")
+			TimeController.day_passed.emit()
 			if month < 12:
 				month += 1
 			
 			else: # Carry-over month
 				month = 1
-				emit_signal("year_passed")
+				TimeController.day_passed.emit()
 				if year < 1000:
 					year += 1
 				
@@ -73,5 +75,20 @@ func _process(delta):
 
 
 # Instance methods
+func swap_timescale():
+	var temp = timescale
+	timescale = old_timescale
+	old_timescale = temp
+	get_tree().paused = not get_tree().paused
+
+
 func set_timescale(scale : float):
+	if is_zero_approx(timescale):
+		old_timescale = 0.0
+		get_tree().paused = not get_tree().paused
+		
 	timescale = scale
+	
+	
+	
+	
