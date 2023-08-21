@@ -40,7 +40,7 @@ func generate(sz: int = 6, sp : float = 500) -> void:
 		var body = body_prototype.instantiate()
 		bodies.append(body)
 		
-		var scale : float = randf_range(0.1, 1)
+		var scale : float = randf_range(0.5, 1)
 		var orbit : float = randf_range(0.01, 0.1)
 		
 		body.orbital_radius = dist_from_star
@@ -52,7 +52,6 @@ func generate(sz: int = 6, sp : float = 500) -> void:
 		
 		
 		dist_from_star += randf_range(spacing - 100, spacing + 100)
-
 	
 func add_player():
 	var player_prototype = preload("res://game/player.tscn")
@@ -64,12 +63,10 @@ func add_player():
 func _process(_delta):
 	
 	if Input.is_action_just_pressed("toggle_pause"):
-		get_tree().paused = not get_tree().paused
-		TimeController.set_timescale(0.0)
-		
+		TimeController.swap_timescale()		
 	
 	elif Input.is_action_just_pressed("time_speed_up"):
-		TimeController.set_timescale(4.0)
+		TimeController.set_timescale(10.0)
 		
 		
 	elif Input.is_action_just_pressed("time_slow_down"):
