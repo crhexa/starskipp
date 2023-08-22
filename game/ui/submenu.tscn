@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8v8i6e7l60n6"]
+
+[ext_resource type="Script" path="res://game/ui/submenu.gd" id="1_le8et"]
+
+[node name="submenu" type="Panel"]
+custom_minimum_size = Vector2(960, 960)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -480.0
+offset_top = -480.0
+offset_right = 480.0
+offset_bottom = 480.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_le8et")
+
+[node name="top_bar" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(960, 50)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -480.0
+offset_right = 480.0
+offset_bottom = 50.0
+grow_horizontal = 2
+color = Color(0.34902, 0.34902, 0.34902, 1)
+
+[connection signal="gui_input" from="top_bar" to="." method="_on_top_bar_gui_input"]

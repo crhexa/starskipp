@@ -66,6 +66,10 @@ time_slow_down={
 ]
 }
 
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
 [rendering]
 
 anti_aliasing/quality/msaa_2d=1

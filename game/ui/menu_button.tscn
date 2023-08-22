@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbn8qf5j7p66l"]
+
+[ext_resource type="FontFile" uid="uid://h685p7c0ncmc" path="res://assets/fonts/Heebo-VariableFont_wght.ttf" id="1_v6cwi"]
+
+[sub_resource type="Theme" id="Theme_ergcm"]
+Button/font_sizes/font_size = 24
+Button/fonts/font = ExtResource("1_v6cwi")
+
+[node name="menu_button" type="Button"]
+offset_right = 200.0
+offset_bottom = 75.0
+theme = SubResource("Theme_ergcm")
+text = "QUIT GAME"
