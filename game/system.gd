@@ -11,6 +11,12 @@ var star : Node2D
 var bodies : Array[Node2D]
 
 
+@onready var player_prototype = preload("res://game/player.tscn")
+@onready var star_prototype = preload("res://game/star.tscn")
+@onready var body_prototype = preload("res://game/body.tscn")
+
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Engine.set_max_fps(120)
@@ -19,9 +25,6 @@ func _ready():
 	
 
 func generate(sz: int = 6, sp : float = 500) -> void:
-	var star_prototype = preload("res://game/star.tscn")
-	var body_prototype = preload("res://game/body.tscn")
-	
 	size = sz
 	spacing = sp
 	
@@ -53,8 +56,8 @@ func generate(sz: int = 6, sp : float = 500) -> void:
 		
 		dist_from_star += randf_range(spacing - 100, spacing + 100)
 	
+	
 func add_player():
-	var player_prototype = preload("res://game/player.tscn")
 	var player = player_prototype.instantiate()
 	add_child(player)
 	player.start(player_position)

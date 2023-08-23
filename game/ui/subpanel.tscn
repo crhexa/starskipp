@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://c8v8i6e7l60n6"]
 
-[ext_resource type="Script" path="res://game/ui/submenu.gd" id="1_le8et"]
+[ext_resource type="Script" path="res://game/ui/subpanel.gd" id="1_npibe"]
 
-[node name="submenu" type="Panel"]
+[node name="subpanel" type="Panel"]
 custom_minimum_size = Vector2(960, 960)
 anchors_preset = 8
 anchor_left = 0.5
@@ -15,7 +15,7 @@ offset_right = 480.0
 offset_bottom = 480.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_le8et")
+script = ExtResource("1_npibe")
 
 [node name="top_bar" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(960, 50)
@@ -29,4 +29,22 @@ offset_bottom = 50.0
 grow_horizontal = 2
 color = Color(0.34902, 0.34902, 0.34902, 1)
 
+[node name="exit_button" type="Button" parent="top_bar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.984
+anchor_top = 0.51
+anchor_right = 0.984
+anchor_bottom = 0.51
+offset_left = -30.64
+offset_top = -15.5
+offset_right = 0.359985
+offset_bottom = 15.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "X"
+flat = true
+
+[connection signal="subpanel_focus_reset" from="." to="." method="_on_subpanel_focus_reset"]
 [connection signal="gui_input" from="top_bar" to="." method="_on_top_bar_gui_input"]
+[connection signal="button_up" from="top_bar/exit_button" to="." method="_on_exit_button_button_up"]
