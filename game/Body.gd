@@ -17,10 +17,7 @@ func _process(_delta):
 	) 
 
 	# Update shader
-	# $MainShader.material.set_shader_parameter("time", t)
+	$MainShader.material.set_shader_parameter("time", t * 0.1)
 	
-	var primary_light = (0.5 * position.normalized()) + Vector2(0.5, 0.5)
+	var primary_light = (-0.5 * position.normalized()) + Vector2(0.5, 0.5)
 	$MainShader.material.set_shader_parameter("light_origin", primary_light)
-
-	$MainShader/Label.text = str(primary_light)
-	

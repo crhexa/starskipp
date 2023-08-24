@@ -1,7 +1,7 @@
 shader_type canvas_item;
 render_mode blend_mix;
 
-uniform float pixels : hint_range(10,100);
+uniform float pixels : hint_range(10,400);
 uniform float time_speed : hint_range(0.0, 1.0) = 0.05;
 uniform float time;
 uniform float rotation : hint_range(0.0, 6.28) = 0.0;

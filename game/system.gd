@@ -24,7 +24,7 @@ func _ready():
 	add_player()
 	
 
-func generate(sz: int = 6, sp : float = 500) -> void:
+func generate(sz: int = 6, sp : float = 700) -> void:
 	size = sz
 	spacing = sp
 	
@@ -43,7 +43,7 @@ func generate(sz: int = 6, sp : float = 500) -> void:
 		var body = body_prototype.instantiate()
 		bodies.append(body)
 		
-		var scale : float = randf_range(0.5, 1)
+		var scale : float = randf_range(1.4, 1.5)
 		var orbit : float = randf_range(0.01, 0.1)
 		
 		body.orbital_radius = dist_from_star

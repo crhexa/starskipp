@@ -14,7 +14,7 @@ gradient = SubResource("Gradient_oib2t")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3vqnk"]
 shader = ExtResource("2_2bmnf")
-shader_parameter/pixels = 100.0
+shader_parameter/pixels = 128.0
 shader_parameter/time_speed = 0.05
 shader_parameter/time = 51.877
 shader_parameter/rotation = 0.0

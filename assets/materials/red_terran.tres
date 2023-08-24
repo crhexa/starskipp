@@ -10,8 +10,9 @@ colors = PackedColorArray(100, 0.54, 0.2, 1, 0.92, 0.27, 0.22, 1, 0.68, 0.18, 0.
 gradient = SubResource("Gradient_ll1ki")
 
 [resource]
+resource_local_to_scene = true
 shader = ExtResource("1_g7ite")
-shader_parameter/pixels = 100.0
+shader_parameter/pixels = 50.0
 shader_parameter/rotation = 0.0
 shader_parameter/light_origin = Vector2(0.1, 0.1)
 shader_parameter/light_distance1 = 0.3
