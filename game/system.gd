@@ -22,6 +22,7 @@ func _ready():
 	Engine.set_max_fps(120)
 	generate()
 	add_player()
+	TimeController.swap_timescale()
 	
 
 func generate(sz: int = 6, sp : float = 700) -> void:
@@ -35,7 +36,7 @@ func generate(sz: int = 6, sp : float = 700) -> void:
 	
 	
 	# Place player spawn point
-	var dist_from_star : float = 300
+	var dist_from_star : float = 1000
 	player_position = Vector2(dist_from_star * 0.75, 0).rotated(randf_range(0, TAU))
 	
 	# Generate bodies
@@ -43,7 +44,7 @@ func generate(sz: int = 6, sp : float = 700) -> void:
 		var body = body_prototype.instantiate()
 		bodies.append(body)
 		
-		var scale : float = randf_range(1.4, 1.5)
+		var scale : float = randf_range(0.75, 1.5)
 		var orbit : float = randf_range(0.01, 0.1)
 		
 		body.orbital_radius = dist_from_star

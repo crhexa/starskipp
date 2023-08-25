@@ -2,8 +2,7 @@
 
 [ext_resource type="Script" path="res://game/Star.gd" id="1_7ar3c"]
 [ext_resource type="Shader" path="res://addons/PixelPlanet/Star.gdshader" id="2_2bmnf"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_g78qh"]
+[ext_resource type="PackedScene" uid="uid://be3o44bh7i12h" path="res://game/sm_selector.tscn" id="2_p0yep"]
 
 [sub_resource type="Gradient" id="Gradient_oib2t"]
 offsets = PackedFloat32Array(0, 0.33, 0.66, 1)
@@ -14,7 +13,7 @@ gradient = SubResource("Gradient_oib2t")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3vqnk"]
 shader = ExtResource("2_2bmnf")
-shader_parameter/pixels = 128.0
+shader_parameter/pixels = 100.0
 shader_parameter/time_speed = 0.05
 shader_parameter/time = 51.877
 shader_parameter/rotation = 0.0
@@ -25,14 +24,14 @@ shader_parameter/OCTAVES = 4
 shader_parameter/TILES = 1.0
 shader_parameter/colorramp = SubResource("GradientTexture1D_tkgmo")
 
-[node name="Star" type="Area2D"]
+[node name="Star" type="Node2D"]
 process_mode = 1
 script = ExtResource("1_7ar3c")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_g78qh")
+[node name="SM_Selector" parent="." instance=ExtResource("2_p0yep")]
 
 [node name="MainShader" type="ColorRect" parent="."]
+z_index = 3
 material = SubResource("ShaderMaterial_3vqnk")
 anchors_preset = 8
 anchor_left = 0.5
@@ -45,3 +44,4 @@ offset_right = 200.0
 offset_bottom = 200.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1

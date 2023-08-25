@@ -56,5 +56,5 @@ func _process(_delta):
 func start(pos):
 	position = pos
 	show()
-	$CollisionShape2D.disabled = false
+	$InteractionCollider.disabled = false
 	

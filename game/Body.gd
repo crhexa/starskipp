@@ -1,12 +1,15 @@
 class_name Body
-extends Area2D
+extends Node2D
 
-@export var primary: Area2D
+@export var primary: Node2D
 @export var orbital_radius: float = 1000
 @export var orbital_speed: float = 0.1
 
 func _ready():
 	$MainShader.material.set_shader_parameter("seed", randf_range(1.0, 10.0))
+	$SM_Selector.set_outline_radius($MainShader.size.x * 0.5 * scale.x)
+	# issue no. 2
+	
 	
 func _process(_delta): 
 	var t = TimeController.time

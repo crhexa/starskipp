@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://be3o44bh7i12h"]
+
+[ext_resource type="Script" path="res://game/SM_Selector.gd" id="1_434yy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ktwvh"]
+resource_local_to_scene = true
+radius = 100.0
+
+[node name="SM_Selector" type="Area2D"]
+z_index = 1
+script = ExtResource("1_434yy")
+highlight_color = Color(1, 1, 1, 1)
+normal_color = Color(1, 1, 1, 0.0196078)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ktwvh")
+metadata/_edit_lock_ = true
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
