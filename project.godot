@@ -28,6 +28,10 @@ window/size/resizable=false
 window/stretch/mode="viewport"
 window/vsync/vsync_mode=0
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/widgets/plugin.cfg")
+
 [input]
 
 turn_right={
