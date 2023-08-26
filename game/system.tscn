@@ -1,12 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://bvn42dkbc7qvg"]
+[gd_scene load_steps=6 format=3 uid="uid://bvn42dkbc7qvg"]
 
 [ext_resource type="Script" path="res://game/System.gd" id="1_p21j8"]
 [ext_resource type="Texture2D" uid="uid://8b5q5pqom7n6" path="res://assets/sprites/background.png" id="2_3fxwv"]
 [ext_resource type="Script" path="res://game/Camera.gd" id="3_mh367"]
+[ext_resource type="Script" path="res://game/ui/Interface.gd" id="4_wvos7"]
 
-[node name="System" type="Node"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ugfl6"]
+
+[node name="System" type="Node2D"]
 process_mode = 3
+z_index = -10
+material = SubResource("ShaderMaterial_ugfl6")
 script = ExtResource("1_p21j8")
+orbit_color = Color(1, 1, 1, 1)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 visible = false
@@ -23,10 +29,14 @@ texture = ExtResource("2_3fxwv")
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("3_mh367")
 
-[node name="Interface" type="Control" parent="Camera2D"]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Interface" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("4_wvos7")

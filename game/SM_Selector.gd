@@ -34,7 +34,9 @@ func _on_input_event(_viewport, event, _shape_idx):
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed == true:
 
 			# mouse interaction code here
-			print("clicked!")
+			var parent : Node2D = get_parent()
+			print("clicked on " + parent.name)
+			Signals.system_object_clicked.emit()
 			
 
 func set_outline_radius(rad : int):

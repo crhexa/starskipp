@@ -1,8 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://c8v8i6e7l60n6"]
+[gd_scene load_steps=4 format=3 uid="uid://c8v8i6e7l60n6"]
 
 [ext_resource type="Script" path="res://game/ui/subpanel.gd" id="1_npibe"]
 
-[node name="subpanel" type="Panel"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s62p1"]
+bg_color = Color(0.12549, 0.133333, 0.211765, 1)
+border_width_left = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.2, 0.223529, 0.278431, 1)
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+shadow_size = 3
+
+[sub_resource type="Theme" id="Theme_r4b44"]
+Panel/styles/panel = SubResource("StyleBoxFlat_s62p1")
+
+[node name="Subpanel" type="Panel"]
 custom_minimum_size = Vector2(960, 960)
 anchors_preset = 8
 anchor_left = 0.5
@@ -15,9 +28,11 @@ offset_right = 480.0
 offset_bottom = 480.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_r4b44")
 script = ExtResource("1_npibe")
+metadata/_edit_lock_ = true
 
-[node name="top_bar" type="ColorRect" parent="."]
+[node name="Top_Bar" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(960, 50)
 layout_mode = 1
 anchors_preset = 5
@@ -27,9 +42,9 @@ offset_left = -480.0
 offset_right = 480.0
 offset_bottom = 50.0
 grow_horizontal = 2
-color = Color(0.34902, 0.34902, 0.34902, 1)
+color = Color(0.305882, 0.392157, 0.470588, 1)
 
-[node name="exit_button" type="Button" parent="top_bar"]
+[node name="Exit_Button" type="Button" parent="Top_Bar"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.984
@@ -42,9 +57,12 @@ offset_right = 0.359985
 offset_bottom = 15.5
 grow_horizontal = 0
 grow_vertical = 2
+tooltip_text = "Exit Window"
+focus_mode = 1
 text = "X"
 flat = true
+metadata/_edit_lock_ = true
 
 [connection signal="subpanel_focus_reset" from="." to="." method="_on_subpanel_focus_reset"]
-[connection signal="gui_input" from="top_bar" to="." method="_on_top_bar_gui_input"]
-[connection signal="button_up" from="top_bar/exit_button" to="." method="_on_exit_button_button_up"]
+[connection signal="gui_input" from="Top_Bar" to="." method="_on_top_bar_gui_input"]
+[connection signal="button_up" from="Top_Bar/Exit_Button" to="." method="_on_exit_button_button_up"]

@@ -8,9 +8,11 @@
 process_mode = 1
 script = ExtResource("1_x0toa")
 
-[node name="SM_Selector" parent="." instance=ExtResource("3_m1nr0")]
+[node name="SMSelector" parent="." instance=ExtResource("3_m1nr0")]
+z_index = 3
 
 [node name="MainShader" type="ColorRect" parent="."]
+z_index = 2
 material = ExtResource("2_iush5")
 anchors_preset = 8
 anchor_left = 0.5

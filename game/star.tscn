@@ -28,7 +28,7 @@ shader_parameter/colorramp = SubResource("GradientTexture1D_tkgmo")
 process_mode = 1
 script = ExtResource("1_7ar3c")
 
-[node name="SM_Selector" parent="." instance=ExtResource("2_p0yep")]
+[node name="SMSelector" parent="." instance=ExtResource("2_p0yep")]
 
 [node name="MainShader" type="ColorRect" parent="."]
 z_index = 3

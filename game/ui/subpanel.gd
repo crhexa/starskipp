@@ -4,6 +4,11 @@ signal subpanel_focus_reset
 
 @onready var screen_size = get_viewport_rect().size
 
+
+func _ready():
+	hide()
+
+
 func _on_top_bar_gui_input(event):
 	subpanel_focus_reset.emit()
 	z_index = 1

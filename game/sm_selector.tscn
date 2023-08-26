@@ -6,7 +6,8 @@
 resource_local_to_scene = true
 radius = 100.0
 
-[node name="SM_Selector" type="Area2D"]
+[node name="SMSelector" type="Area2D"]
+process_mode = 3
 z_index = 1
 script = ExtResource("1_434yy")
 highlight_color = Color(1, 1, 1, 1)

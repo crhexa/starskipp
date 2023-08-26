@@ -54,7 +54,7 @@ class Date:
 					year = 1
 					millennium += 1
 		
-		print(str(month) + "/" + str(day) + "/" + str(year))
+		# print(str(month) + "/" + str(day) + "/" + str(year))
 					
 var current_date : Date
 

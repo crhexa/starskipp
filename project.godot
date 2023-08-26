@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 TimeController="*res://game/global/TimeController.gd"
+Signals="*res://game/global/Signals.gd"
 
 [display]
 
@@ -86,5 +87,7 @@ pointing/emulate_touch_from_mouse=true
 
 [rendering]
 
-anti_aliasing/quality/msaa_2d=1
+environment/defaults/default_clear_color=Color(0.0862745, 0.105882, 0.172549, 1)
+anti_aliasing/quality/msaa_2d=2
+anti_aliasing/quality/screen_space_aa=1
 anti_aliasing/quality/use_taa=true
