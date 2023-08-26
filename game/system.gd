@@ -16,12 +16,10 @@ var bodies : Array[Node2D]
 @onready var body_prototype = preload("res://game/body.tscn")
 
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	Engine.set_max_fps(120)
 	generate()
-	add_player()
+	# add_player()
 	TimeController.swap_timescale()
 	
 

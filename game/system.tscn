@@ -1,13 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://bvn42dkbc7qvg"]
+[gd_scene load_steps=4 format=3 uid="uid://bvn42dkbc7qvg"]
 
 [ext_resource type="Script" path="res://game/System.gd" id="1_p21j8"]
 [ext_resource type="Texture2D" uid="uid://8b5q5pqom7n6" path="res://assets/sprites/background.png" id="2_3fxwv"]
+[ext_resource type="Script" path="res://game/Camera.gd" id="3_mh367"]
 
 [node name="System" type="Node"]
 process_mode = 3
 script = ExtResource("1_p21j8")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+visible = false
 offset = Vector2(1920, 1080)
 transform = Transform2D(1, 0, 0, 1, 1920, 1080)
 
@@ -17,3 +19,14 @@ motion_mirroring = Vector2(3840, 2160)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 texture = ExtResource("2_3fxwv")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("3_mh367")
+
+[node name="Interface" type="Control" parent="Camera2D"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

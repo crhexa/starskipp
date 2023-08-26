@@ -35,6 +35,7 @@ position = Vector2(0, 15)
 shape = SubResource("CircleShape2D_0tgg5")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+enabled = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
 layer = -1
