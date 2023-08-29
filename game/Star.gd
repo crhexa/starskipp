@@ -8,6 +8,7 @@ var type : SpectralClass
 
 func _ready():
 	$SMSelector.set_outline_radius($MainShader.size.x * 0.6 * scale.x)
+	$MainShader.material.set_shader_parameter("time", 0)
 
 
 func _process(_delta):

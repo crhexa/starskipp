@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 TimeController="*res://game/global/TimeController.gd"
 Signals="*res://game/global/Signals.gd"
+PlayerVariables="*res://game/global/PlayerVariables.gd"
 
 [display]
 
@@ -80,6 +81,11 @@ zoom_in={
 "events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":4,"canceled":false,"pressed":false,"double_click":false,"script":null)
 ]
 }
+mouse_left={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"canceled":false,"pressed":false,"double_click":false,"script":null)
+]
+}
 
 [input_devices]
 
@@ -88,6 +94,6 @@ pointing/emulate_touch_from_mouse=true
 [rendering]
 
 environment/defaults/default_clear_color=Color(0.0862745, 0.105882, 0.172549, 1)
-anti_aliasing/quality/msaa_2d=2
+anti_aliasing/quality/msaa_2d=3
 anti_aliasing/quality/screen_space_aa=1
 anti_aliasing/quality/use_taa=true

@@ -35,12 +35,12 @@ func _process(_delta):
 	elif Input.is_action_just_pressed("time_speed_up"):
 		TimeController.set_timescale(10.0)
 		
-		
 	elif Input.is_action_just_pressed("time_slow_down"):
 		TimeController.set_timescale(1.0)
 	
 	
 func _draw():
+	# Draw orbit lines for each body
 	for body in bodies:
 		draw_arc(star.position, body.orbital_radius, 0, TAU, 256, orbit_color, orbit_width, false)
 		

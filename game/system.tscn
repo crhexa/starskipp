@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://game/System.gd" id="1_p21j8"]
 [ext_resource type="Texture2D" uid="uid://8b5q5pqom7n6" path="res://assets/sprites/background.png" id="2_3fxwv"]
-[ext_resource type="Script" path="res://game/Camera.gd" id="3_mh367"]
+[ext_resource type="Script" path="res://game/ui/Camera.gd" id="3_sf1ag"]
 [ext_resource type="Script" path="res://game/ui/Interface.gd" id="4_wvos7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ugfl6"]
@@ -27,7 +27,7 @@ motion_mirroring = Vector2(3840, 2160)
 texture = ExtResource("2_3fxwv")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-script = ExtResource("3_mh367")
+script = ExtResource("3_sf1ag")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
