@@ -1,9 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c8v8i6e7l60n6"]
+[gd_scene load_steps=5 format=3 uid="uid://c8v8i6e7l60n6"]
 
 [ext_resource type="Script" path="res://game/ui/Subpanel.gd" id="1_x553r"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s62p1"]
-bg_color = Color(0.12549, 0.133333, 0.211765, 1)
+bg_color = Color(0.686275, 0.705882, 0.768627, 1)
 border_width_left = 3
 border_width_right = 3
 border_width_bottom = 3
@@ -15,8 +15,9 @@ shadow_size = 3
 [sub_resource type="Theme" id="Theme_r4b44"]
 Panel/styles/panel = SubResource("StyleBoxFlat_s62p1")
 
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_jekju"]
+
 [node name="Subpanel" type="Panel"]
-visible = false
 custom_minimum_size = Vector2(960, 960)
 anchors_preset = 8
 anchor_left = 0.5
@@ -66,6 +67,54 @@ text = "X"
 flat = true
 metadata/_edit_lock_ = true
 
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 45.0
+offset_right = -3.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+all_tabs_in_front = true
+use_hidden_tabs_for_min_size = true
+metadata/_edit_lock_ = true
+
+[node name="Description" type="HBoxContainer" parent="TabContainer"]
+layout_mode = 2
+metadata/_edit_lock_ = true
+
+[node name="Left" type="VBoxContainer" parent="TabContainer/Description"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Margin" type="MarginContainer" parent="TabContainer/Description/Left"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="TextureRect" type="TextureRect" parent="TabContainer/Description/Left/Margin"]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_jekju")
+
+[node name="Right" type="VBoxContainer" parent="TabContainer/Description"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Resources" type="HBoxContainer" parent="TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Construction" type="HBoxContainer" parent="TabContainer"]
+visible = false
+layout_mode = 2
+
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="gui_input" from="Top_Bar" to="." method="_on_top_bar_gui_input"]
 [connection signal="button_up" from="Top_Bar/Exit_Button" to="." method="_on_exit_button_button_up"]
+[connection signal="tab_clicked" from="TabContainer" to="." method="_on_tab_container_tab_clicked"]

@@ -44,6 +44,12 @@ func _on_subpanel_focus_reset():
 		has_mouse_focus = false
 
 
+# Attempt to reorder the subpanels if a subpanel tab is clicked
+func _on_tab_container_tab_clicked(tab):
+	if not has_mouse_focus:
+		bring_to_front()
+
+
 # Send the current subpanel to the front of the drawing order (back of the array)
 func bring_to_front():
 	if not subpanels.has(self):
@@ -55,3 +61,5 @@ func bring_to_front():
 	
 	has_mouse_focus = true
 	Signals.subpanel_focus_reset.emit()
+
+
