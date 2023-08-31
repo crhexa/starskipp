@@ -51,7 +51,7 @@ func generate(sz: int = 6, sp : float = 700) -> void:
 	
 	# Generate star
 	star = star_prototype.instantiate()
-	star.type = Star.SpectralClass.CLASS_G
+	star.properties["Type"] = Star.SpectralClass.CLASS_G
 	add_child(star)
 	
 	

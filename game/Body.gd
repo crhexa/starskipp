@@ -1,11 +1,28 @@
-class_name Body
-extends Node2D
+class_name Body extends Node2D
 
 @export var primary: Node2D
 @export var orbital_radius : float = 1000
 @export var orbital_speed : float = 0.1
 
-var t_offset
+var t_offset : float
+
+# Determines appearance and how the rest of the planet's properties
+enum Type { EMPTY, OCEAN_ROCKY, OCEAN_ICE, DRY_ROCKY, GAS_GIANT, ICE_GIANT }
+
+# Planet habitability modifiers
+enum Modifier { SUNLIGHT_NONE, SUNLIGHT_DARK, SUNLIGHT_INTENSE,
+				MAGNETIC_NONE, MAGNETIC_WEAK, MAGNETIC_STRONG,
+				ATMOSPHERE_NONE, ATMOSPHERE_THIN, ATMOSPHERE_THICK,
+				GRAVITY_NONE, GRAVITY_WEAK, GRAVITY_STRONG,
+
+}
+
+var properties = {
+	"Type" : Type.EMPTY,
+	"Mass" : -1,				# In terran masses (5.97 * 10^24 kg)
+	
+	"Modifiers" : []
+}
 
 
 func _ready():

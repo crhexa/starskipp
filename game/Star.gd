@@ -1,9 +1,15 @@
-class_name Star
-extends Node2D
+class_name Star extends Node2D
 
 
-enum SpectralClass {CLASS_O, CLASS_B, CLASS_A, CLASS_F, CLASS_G, CLASS_K, CLASS_M}
-var type : SpectralClass
+# Determines the properties of the surrounding planets
+enum SpectralClass {EMPTY, CLASS_O, CLASS_B, CLASS_A, CLASS_F, CLASS_G, CLASS_K, CLASS_M}
+
+var properties = {
+	"Spectral Class" : SpectralClass.EMPTY,		# Harvard system classification
+	"Effective Temperature" : -1,				# In Kelvin
+	"Mass" : -1,								# In solar masses (2 * 10^30 kg)
+}
+
 
 
 func _ready():
