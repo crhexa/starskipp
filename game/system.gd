@@ -8,12 +8,12 @@ var spacing : float			# Average space between the orbits of bodies
 # Instance variables
 var player_position := Vector2.ZERO
 var star : Node2D
-var bodies : Array[Node2D]
+var planets : Array[Node2D]
 
 
 @onready var player_prototype = preload("res://game/player.tscn")
-@onready var star_prototype = preload("res://game/star.tscn")
-@onready var body_prototype = preload("res://game/body.tscn")
+@onready var star_prototype = preload("res://game/star/star.tscn")
+@onready var planet_prototype = preload("res://game/planet/planet.tscn")
 
 
 @export var orbit_color : Color
@@ -40,9 +40,9 @@ func _process(_delta):
 	
 	
 func _draw():
-	# Draw orbit lines for each body
-	for body in bodies:
-		draw_arc(star.position, body.orbital_radius, 0, TAU, 256, orbit_color, orbit_width, false)
+	# Draw orbit lines for each planet
+	for planet in planets:
+		draw_arc(star.position, planet.orbital_radius, 0, TAU, 256, orbit_color, orbit_width, false)
 		
 
 func generate(sz: int = 6, sp : float = 700) -> void:
@@ -61,18 +61,18 @@ func generate(sz: int = 6, sp : float = 700) -> void:
 	
 	# Generate bodies
 	for i in range(size):
-		var body = body_prototype.instantiate()
-		bodies.append(body)
+		var planet = planet_prototype.instantiate()
+		planets.append(planet)
 		
 		var s : float = randf_range(0.75, 1.5)
 		var o : float = randf_range(0.01, 0.1)
 		
-		body.orbital_radius = dist_from_star
-		body.orbital_speed = o
-		body.primary = star
+		planet.orbital_radius = dist_from_star
+		planet.orbital_speed = o
+		planet.primary = star
 		
-		body.set_scale(Vector2(s, s))
-		add_child(body)
+		planet.set_scale(Vector2(s, s))
+		add_child(planet)
 		
 		
 		dist_from_star += randf_range(spacing - 100, spacing + 100)

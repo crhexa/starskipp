@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://drhu33o5sn5ci"]
 
-[ext_resource type="Script" path="res://game/Star.gd" id="1_7ar3c"]
+[ext_resource type="Script" path="res://game/star/Star.gd" id="1_7ar3c"]
 [ext_resource type="Shader" path="res://addons/PixelPlanet/Star.gdshader" id="2_2bmnf"]
-[ext_resource type="PackedScene" uid="uid://be3o44bh7i12h" path="res://game/sm_selector.tscn" id="2_p0yep"]
+[ext_resource type="PackedScene" uid="uid://be3o44bh7i12h" path="res://game/ui/sm_selector.tscn" id="2_p0yep"]
 
 [sub_resource type="Gradient" id="Gradient_oib2t"]
 offsets = PackedFloat32Array(0, 0.33, 0.66, 1)

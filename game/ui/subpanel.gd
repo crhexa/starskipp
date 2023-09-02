@@ -45,7 +45,7 @@ func _on_subpanel_focus_reset():
 
 
 # Attempt to reorder the subpanels if a subpanel tab is clicked
-func _on_tab_container_tab_clicked(tab):
+func _on_tab_container_tab_clicked(_tab):
 	if not has_mouse_focus:
 		bring_to_front()
 

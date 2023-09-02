@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://be3o44bh7i12h"]
 
-[ext_resource type="Script" path="res://game/SMSelector.gd" id="1_fdml6"]
+[ext_resource type="Script" path="res://game/ui/SMSelector.gd" id="1_ki0il"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ktwvh"]
 resource_local_to_scene = true
@@ -9,7 +9,7 @@ radius = 100.0
 [node name="SMSelector" type="Area2D"]
 process_mode = 3
 z_index = 1
-script = ExtResource("1_fdml6")
+script = ExtResource("1_ki0il")
 highlight_color = Color(1, 1, 1, 1)
 normal_color = Color(1, 1, 1, 0.0196078)
 

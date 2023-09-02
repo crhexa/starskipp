@@ -31,7 +31,7 @@ func _on_mouse_exited():
 
 func _on_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed == true:
+		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 
 			# mouse interaction code here
 			var parent : Node2D = get_parent()
