@@ -1,3 +1,4 @@
+class_name PlanetModifiers
 
 
 # Returns the name of the modifier
