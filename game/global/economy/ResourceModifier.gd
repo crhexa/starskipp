@@ -1,6 +1,6 @@
 class_name ResourceModifier
 
-enum ResourceType { PLANET, SYSTEM, PLAYER }
+enum ResourceGroup { PLANET, SYSTEM, PLAYER }
 enum Operation { OFFSET, ADDITIVE, MULTIPLICATIVE }
 
 
@@ -10,8 +10,8 @@ var name : StringName
 # The resource being modified
 var resource : int
 
-# The type of the resource being modified
-var resource_type : ResourceType
+# What object the resource is associated with
+var group : ResourceGroup
 
 # How the resource will be modified
 var operation : Operation
@@ -20,9 +20,9 @@ var operation : Operation
 var value : float
 
 
-func _init(n : StringName, res : int, res_type : ResourceType, op : Operation, val : float):
+func _init(n : StringName, res : int, res_group : ResourceGroup, op : Operation, val : float):
 	name = n
 	resource = res
-	resource_type = res_type
+	group = res_group
 	operation = op
 	value = val
