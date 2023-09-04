@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bvn42dkbc7qvg"]
+[gd_scene load_steps=7 format=3 uid="uid://bvn42dkbc7qvg"]
 
 [ext_resource type="Script" path="res://game/System.gd" id="1_p21j8"]
 [ext_resource type="Texture2D" uid="uid://8b5q5pqom7n6" path="res://assets/sprites/background.png" id="2_3fxwv"]
+[ext_resource type="Script" path="res://game/global/economy/ResourceManager.gd" id="2_ivjnu"]
 [ext_resource type="Script" path="res://game/ui/Camera.gd" id="3_sf1ag"]
 [ext_resource type="Script" path="res://game/ui/Interface.gd" id="4_wvos7"]
 
@@ -13,6 +14,10 @@ z_index = -10
 material = SubResource("ShaderMaterial_ugfl6")
 script = ExtResource("1_p21j8")
 orbit_color = Color(1, 1, 1, 1)
+
+[node name="ResourceManager" type="Node" parent="."]
+script = ExtResource("2_ivjnu")
+flag = 1
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 visible = false

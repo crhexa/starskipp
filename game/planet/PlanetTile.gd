@@ -2,8 +2,7 @@ class_name PlanetTile extends Node
 
 enum Flags {}
 
-var primary_resource : ResourceModifier
-var primary_richness : float
+@onready var manager : ResourceManager = $ResourceManager
 
 var modifiers : Array[ResourceModifier] = []
 var flags : Array[Flags] = []
@@ -13,18 +12,20 @@ var building_buffer : PlanetBuilding
 
 
 func _ready():
-	Signals.day_passed.connect(_on_day_passed)
+	pass
+	
+	
+func set_targets(planet_manager : ResourceManager):
+	manager.planet_target = planet_manager.planet
+	manager.system_target = planet_manager.system
+	manager.player_target = planet_manager.player
 
 
-func _init(res : int, res_group : ResourceModifier.ResourceGroup, rich : float):
-	primary_richness = rich
-	primary_resource = ResourceModifier.new(
-		&"BaseTileExtract", res, res_group, ResourceModifier.Operation.OFFSET, primary_richness
-		)
-	modifiers.append(primary_resource)
+func add_modifier(mod : ResourceModifier):
+	modifiers.append(mod)
+	manager.get_group_income(mod.group).income_modifiers.append(mod)
 	
 
-func _on_day_passed():
-	pass
-
-
+func remove_modifier(mod : ResourceModifier):
+	modifiers.erase(mod)
+	manager.get_group_income(mod.group).income_modifiers.erase(mod)

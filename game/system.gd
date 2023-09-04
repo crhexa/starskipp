@@ -1,4 +1,15 @@
-extends Node2D
+class_name System extends Node2D
+
+@onready var player_prototype = preload("res://game/player.tscn")
+@onready var star_prototype = preload("res://game/star/star.tscn")
+@onready var planet_prototype = preload("res://game/planet/planet.tscn")
+
+@onready var manager : ResourceManager = $ResourceManager
+
+@export var orbit_color : Color
+@export var orbit_width : int = 3
+
+
 
 # Initialization variables
 var size : int				# Number of bodies
@@ -10,14 +21,6 @@ var player_position := Vector2.ZERO
 var star : Node2D
 var planets : Array[Node2D]
 
-
-@onready var player_prototype = preload("res://game/player.tscn")
-@onready var star_prototype = preload("res://game/star/star.tscn")
-@onready var planet_prototype = preload("res://game/planet/planet.tscn")
-
-
-@export var orbit_color : Color
-@export var orbit_width : int = 3
 
 
 func _ready():

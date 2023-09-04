@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://b4yxfj8xrfrku"]
+[gd_scene load_steps=7 format=3 uid="uid://b4yxfj8xrfrku"]
 
 [ext_resource type="Script" path="res://game/planet/Planet.gd" id="1_c55lr"]
 [ext_resource type="PackedScene" uid="uid://be3o44bh7i12h" path="res://game/ui/sm_selector.tscn" id="2_hcjkt"]
 [ext_resource type="Material" uid="uid://8v0ph1miwemo" path="res://assets/materials/red_terran.tres" id="3_b1vxi"]
 [ext_resource type="Script" path="res://game/global/economy/PlanetResources.gd" id="4_jwsnr"]
 [ext_resource type="Script" path="res://game/global/economy/ResourceManager.gd" id="5_6j8e2"]
+[ext_resource type="Script" path="res://game/planet/TileManager.gd" id="6_doam4"]
 
 [node name="Planet" type="Node2D"]
 process_mode = 1
@@ -34,4 +35,6 @@ script = ExtResource("4_jwsnr")
 
 [node name="ResourceManager" type="Node" parent="."]
 script = ExtResource("5_6j8e2")
-flag = 1
+
+[node name="TileManager" type="Node" parent="."]
+script = ExtResource("6_doam4")

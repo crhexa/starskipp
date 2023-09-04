@@ -46,5 +46,5 @@ func process_storage() -> void:
 
 func new_income() -> EconomyIncome:
 	var foo = EconomyIncome.new(types, resource_group)
-	Utilities.set_size_zero(eco_inc.income, types)
+	Utilities.set_size_zero(foo.income, types)
 	return foo

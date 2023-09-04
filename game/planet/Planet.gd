@@ -1,5 +1,9 @@
 class_name Planet extends Node2D
 
+@onready var manager : ResourceManager = $ResourceManager
+@onready var resources : PlanetResources = $PlanetResources
+@onready var system : System = get_parent()
+
 @export var primary: Node2D
 @export var orbital_radius : float = 1000
 @export var orbital_speed : float = 0.1
@@ -26,6 +30,13 @@ var properties = {
 
 
 func _ready():
+	# Link resource manager
+	manager.planet_target = resources.eco_inc
+	manager.system_target = system.manager.system
+	manager.player_target = system.manager.player
+	
+	
+	# Set rendering parameters
 	t_offset = randf_range(0, 1000000)
 	$MainShader.material.set_shader_parameter("seed", randf_range(1.0, 10.0))
 	$SMSelector.set_outline_radius($MainShader.size.x * 0.5 * scale.x)
