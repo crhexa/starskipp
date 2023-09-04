@@ -20,7 +20,6 @@ config/icon="res://icon.svg"
 TimeController="*res://game/global/TimeController.gd"
 Signals="*res://game/global/Signals.gd"
 PlayerVariables="*res://game/global/PlayerVariables.gd"
-Utilities="*res://game/global/Utilities.gd"
 
 [display]
 

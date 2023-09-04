@@ -3,9 +3,8 @@ class_name SystemResources extends EconomyResources
 enum Type { BULK_MINERALS, HALOGENS, VOLATILES, NOBLE_METALS, NOBLE_GASES, PLATINOIDS, RADIOISOTOPES }
 
 
-func _ready():
+func _init():
 	types = Type.size()
 	resource_group = ResourceModifier.ResourceGroup.SYSTEM
-	Utilities.set_size_zero(storage, types)
-	Utilities.set_size_zero(income, types)
-
+	super._init()
+	

@@ -1,42 +1,19 @@
 class_name EconomyResources extends Node
 
 static var storage : Array[float] = []
-static var income : Array[float] = []
 static var storage_modifiers : Array[ResourceModifier] = []
-static var income_modifiers : Array[ResourceModifier] = []
+static var eco_inc : EconomyIncome
 
 # Defined by child classes
-static var types : int
-static var resource_group : ResourceModifier.ResourceGroup
+var types : int
+var resource_group : ResourceModifier.ResourceGroup
 
 
-# Income is calculated as (x [offsets] * y [additive]) * z [multiplicative]
-func process_income() -> void:
-	var expanded : Array[Vector3] = []
-	expanded.resize(types)
-	expanded.fill(Vector3(0.0, 1.0, 1.0))
+func _init():
+	# "types" should be initialized in the child class before calling this method
+	Utilities.set_size_zero(storage, types)
+	eco_inc = new_income()
 	
-	
-	for res_mod in income_modifiers:
-		if res_mod.group != resource_group:
-			push_error("Resource modifier group does not match resource's")
-			continue
-		
-		match res_mod.operation:
-			
-			ResourceModifier.Operation.OFFSET:
-				expanded[res_mod.resource].x += res_mod.value
-				
-			ResourceModifier.Operation.ADDITIVE:
-				expanded[res_mod.resource].y += res_mod.value
-				
-			ResourceModifier.Operation.MULTIPLICATIVE:
-				expanded[res_mod.resource].z *= res_mod.value
-	
-	
-	for type in range(types):
-		income[type] = expanded[type].x * expanded[type].y * expanded[type].z
-
 
 # Storage is calculated as (storage + additive) + offsets
 func process_storage() -> void:
@@ -64,5 +41,10 @@ func process_storage() -> void:
 	
 	
 	for type in range(types):
-		storage[type] = expanded[type].x + (expanded[type].y * storage[type]) + income[type]
+		storage[type] = expanded[type].x + (expanded[type].y * storage[type]) + eco_inc.income[type]
 			
+
+func new_income() -> EconomyIncome:
+	var foo = EconomyIncome.new(types, resource_group)
+	Utilities.set_size_zero(eco_inc.income, types)
+	return foo

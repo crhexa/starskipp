@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdxtatartaao3"]
+
+[ext_resource type="Script" path="res://game/planet/PlanetTile.gd" id="1_5twgj"]
+[ext_resource type="Script" path="res://game/global/economy/ResourceManager.gd" id="2_d0jxy"]
+
+[node name="PlanetTile" type="Node2D"]
+script = ExtResource("1_5twgj")
+
+[node name="ResourceManager" type="Node" parent="."]
+script = ExtResource("2_d0jxy")
+flag = 1

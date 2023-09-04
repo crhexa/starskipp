@@ -9,19 +9,19 @@ var t_offset : float
 # Determines appearance and how the rest of the planet's properties
 enum Type { EMPTY, OCEAN_ROCKY, OCEAN_ICE, DRY_ROCKY, GAS_GIANT, ICE_GIANT }
 
-# Planet habitability modifiers
-enum Modifier { SUNLIGHT_NONE, SUNLIGHT_DARK, SUNLIGHT_INTENSE,
-				MAGNETIC_NONE, MAGNETIC_WEAK, MAGNETIC_STRONG,
-				ATMOSPHERE_NONE, ATMOSPHERE_THIN, ATMOSPHERE_THICK,
-				GRAVITY_NONE, GRAVITY_WEAK, GRAVITY_STRONG,
-				RADIATION_HIGH, RADIATION_INTENSE
+# Planet habitability flags
+enum Flag { SUNLIGHT_NONE, SUNLIGHT_DARK, SUNLIGHT_INTENSE,
+			MAGNETIC_NONE, MAGNETIC_WEAK, MAGNETIC_STRONG,
+			ATMOSPHERE_NONE, ATMOSPHERE_THIN, ATMOSPHERE_THICK,
+			GRAVITY_NONE, GRAVITY_WEAK, GRAVITY_STRONG,
+			RADIATION_HIGH, RADIATION_INTENSE
 }
 
 var properties = {
 	"Type" : Type.EMPTY,
 	"Mass" : -1,				# In terran masses (5.97 * 10^24 kg)
 	
-	"Modifiers" : []
+	"Flags" : []
 }
 
 

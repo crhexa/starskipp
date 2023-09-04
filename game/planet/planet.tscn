@@ -1,10 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://b4yxfj8xrfrku"]
+[gd_scene load_steps=6 format=3 uid="uid://b4yxfj8xrfrku"]
 
 [ext_resource type="Script" path="res://game/planet/Planet.gd" id="1_c55lr"]
 [ext_resource type="PackedScene" uid="uid://be3o44bh7i12h" path="res://game/ui/sm_selector.tscn" id="2_hcjkt"]
 [ext_resource type="Material" uid="uid://8v0ph1miwemo" path="res://assets/materials/red_terran.tres" id="3_b1vxi"]
+[ext_resource type="Script" path="res://game/global/economy/PlanetResources.gd" id="4_jwsnr"]
+[ext_resource type="Script" path="res://game/global/economy/ResourceManager.gd" id="5_6j8e2"]
 
-[node name="Body" type="Node2D"]
+[node name="Planet" type="Node2D"]
 process_mode = 1
 script = ExtResource("1_c55lr")
 
@@ -26,3 +28,10 @@ offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
+
+[node name="PlanetResources" type="Node" parent="."]
+script = ExtResource("4_jwsnr")
+
+[node name="ResourceManager" type="Node" parent="."]
+script = ExtResource("5_6j8e2")
+flag = 1
