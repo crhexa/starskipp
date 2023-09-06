@@ -26,8 +26,13 @@ var planets : Array[Node2D]
 func _ready():
 	Engine.set_max_fps(120)
 	generate()
-	# add_player()
+
+	
 	TimeController.swap_timescale()
+	Signals.month_passed.connect(_on_month_passed)
+	
+	# Link resource manager
+	# $ResourceManager.player_target = player.manager.player.income_modifiers
 	
 		
 func _process(_delta):
@@ -47,6 +52,16 @@ func _draw():
 	for planet in planets:
 		draw_arc(star.position, planet.orbital_radius, 0, TAU, 256, orbit_color, orbit_width, false)
 		
+		
+func _on_month_passed():
+	print_debug("month ticked")
+	
+	for planet in planets:
+		planet.process_resources()
+	
+	$ResourceManager.process_income()
+	$SystemResources.process_storage($ResourceManager.system)
+	
 
 func generate(sz: int = 6, sp : float = 700) -> void:
 	size = sz

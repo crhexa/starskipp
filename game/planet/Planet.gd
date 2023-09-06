@@ -1,8 +1,6 @@
 class_name Planet extends Node2D
 
-@onready var manager : ResourceManager = $ResourceManager
-@onready var resources : PlanetResources = $PlanetResources
-@onready var system : System = get_parent()
+@onready var system = get_parent()
 
 @export var primary: Node2D
 @export var orbital_radius : float = 1000
@@ -30,10 +28,10 @@ var properties = {
 
 
 func _ready():
+	
 	# Link resource manager
-	manager.planet_target = resources.eco_inc
-	manager.system_target = system.manager.system
-	manager.player_target = system.manager.player
+	$ResourceManager.system_target = system.manager.system.income_modifiers
+	$ResourceManager.player_target = system.manager.player.income_modifiers
 	
 	
 	# Set rendering parameters
@@ -45,6 +43,13 @@ func _ready():
 	# set the initial position before the first frame
 	orbit(t_offset)
 
+
+	# delete me
+	$ResourceManager.system.income_modifiers.append(ResourceModifier.new(
+		&"Starting Income", SystemResources.Type.NOBLE_GASES, ResourceModifier.ResourceGroup.SYSTEM,
+		ResourceModifier.Operation.OFFSET, 2.0, 5
+	))
+	
 	
 func _process(_delta): 
 	orbit(t_offset + TimeController.time)
@@ -65,3 +70,7 @@ func orbit(time : float = 0):
 	$MainShader.material.set_shader_parameter("light_origin", primary_light)
 	
 	
+func process_resources():
+	$TileManager.process_resources()
+	$ResourceManager.process_income() 
+	$PlanetResources.process_storage($ResourceManager.planet)

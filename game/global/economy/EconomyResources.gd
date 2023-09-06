@@ -1,8 +1,7 @@
 class_name EconomyResources extends Node
 
-static var storage : Array[float] = []
-static var storage_modifiers : Array[ResourceModifier] = []
-static var eco_inc : EconomyIncome
+var storage : Array[float] = []
+var storage_modifiers : Array[ResourceModifier] = []
 
 # Defined by child classes
 var types : int
@@ -12,39 +11,42 @@ var resource_group : ResourceModifier.ResourceGroup
 func _init():
 	# "types" should be initialized in the child class before calling this method
 	Utilities.set_size_zero(storage, types)
-	eco_inc = new_income()
 	
 
 # Storage is calculated as (storage + additive) + offsets
-func process_storage() -> void:
+func process_storage(inc : EconomyIncome) -> void:
 	var expanded : Array[Vector2] = []
 	expanded.resize(types)
 	expanded.fill(Vector2(0.0, 1.0))
 	
-	
-	for res_mod in storage_modifiers:
-		if res_mod.group != resource_group:
+	var i = 0
+	var j = storage_modifiers.size()
+	while i < j:
+		var mod : ResourceModifier = storage_modifiers[i]
+		
+		if mod.group != resource_group:
 			push_error("Resource modifier group does not match resource's")
 			continue
 		
-		match res_mod.operation:
+		match mod.operation:
 			
 			# Check for invalid multiplicative operation
 			ResourceModifier.Operation.MULTIPLICATIVE:
-				push_error("Invalid multiplicative storage modifier linked to " + res_mod.name)
+				push_error("Invalid multiplicative storage modifier linked to " + mod.name)
 				
 			ResourceModifier.Operation.OFFSET:
-				expanded[res_mod.resource].x += res_mod.value
+				expanded[mod.resource].x += mod.value
 				
 			ResourceModifier.Operation.ADDITIVE:
-				expanded[res_mod.resource].y += res_mod.value
+				expanded[mod.resource].y += mod.value
 	
+		if ResourceModifier.tick(mod):
+			storage_modifiers.remove_at(i)
+			j -= 1
+			
+		else:
+			i += 1
 	
 	for type in range(types):
-		storage[type] = expanded[type].x + (expanded[type].y * storage[type]) + eco_inc.income[type]
+		storage[type] = expanded[type].x + (expanded[type].y * storage[type]) + inc.income[type]
 			
-
-func new_income() -> EconomyIncome:
-	var foo = EconomyIncome.new(types, resource_group)
-	Utilities.set_size_zero(foo.income, types)
-	return foo

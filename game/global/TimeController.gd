@@ -13,14 +13,10 @@ var delta_t : float
 
 
 class Date:
-	
-	var overflow : float
-	
 	var day : int
 	var month : int
 	var year : int
 	var millennium : int
-	
 	
 	
 	func _init(d : int = 1, m : int = 1, y : int = 1, ml : int = 1):
@@ -28,25 +24,23 @@ class Date:
 		month = m
 		year = y
 		millennium = ml
-		
-		overflow = 0
 
 	
 	# Advance tick system by one day
 	func advance():
-		TimeController.day_passed.emit()
+		Signals.day_passed.emit()
 		if day < 30:
 			day += 1
 			
 		else: # Carry-over day
 			day = 1
-			TimeController.day_passed.emit()
+			Signals.month_passed.emit()
 			if month < 12:
 				month += 1
 			
 			else: # Carry-over month
 				month = 1
-				TimeController.day_passed.emit()
+				Signals.year_passed.emit()
 				if year < 1000:
 					year += 1
 				

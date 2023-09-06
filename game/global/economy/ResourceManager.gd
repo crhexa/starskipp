@@ -4,9 +4,9 @@ var planet : EconomyIncome
 var system : EconomyIncome
 var player : EconomyIncome
 
-var planet_target : EconomyIncome
-var system_target : EconomyIncome
-var player_target : EconomyIncome
+var planet_target : Array[ResourceModifier]
+var system_target : Array[ResourceModifier]
+var player_target : Array[ResourceModifier]
 
 
 # Denotes which group (and every group broader than it) should the manager keep track of
@@ -14,10 +14,10 @@ var player_target : EconomyIncome
 
 
 func _ready():
-	if flag > 1:
+	if flag < 1:
 		planet = EconomyIncome.new(PlanetResources.Type.size(), ResourceModifier.ResourceGroup.PLANET)
 	
-	if flag > 0:
+	if flag < 2:
 		system = EconomyIncome.new(SystemResources.Type.size(), ResourceModifier.ResourceGroup.SYSTEM)
 		
 	player = EconomyIncome.new(PlayerResources.Type.size(), ResourceModifier.ResourceGroup.PLAYER)
@@ -26,24 +26,27 @@ func _ready():
 # Creates resource modifiers from an income array
 func propagate(src : Array[float], tgt : Array[ResourceModifier], mod_name: StringName, group : int):
 	for i in range(src.size()):
-		tgt.append(ResourceModifier.new(
-			mod_name, i, group, ResourceModifier.Operation.OFFSET, src[i]
+		if is_zero_approx(src[i]):
+			continue
+			
+		tgt.append(ResourceModifier.new( 
+			mod_name, i, group, ResourceModifier.Operation.OFFSET, src[i], 1
 		))
 	
 	
 # Aggregate all resource modifiers from every possible group and create new offset modifiers
 func process_income():
-	if planet_target != null:
+	if planet != null and planet_target != null:
 		planet.process_income()
-		propagate(planet.income, planet_target.income_modifiers, &"Tile Income", ResourceModifier.ResourceGroup.PLANET)
+		propagate(planet.income, planet_target, &"Tile Income", ResourceModifier.ResourceGroup.PLANET)
 		
-	if system_target != null:
+	if system != null and system_target != null:
 		system.process_income()
-		propagate(system.income, system_target.income_modifiers, &"Planet Income", ResourceModifier.ResourceGroup.SYSTEM)
+		propagate(system.income, system_target, &"Planet Income", ResourceModifier.ResourceGroup.SYSTEM)
 	
-	if player_target != null:	
+	if player != null and player_target != null:	
 		player.process_income()
-		propagate(player.income, player_target.income_modifiers, &"System Income", ResourceModifier.ResourceGroup.PLAYER)
+		propagate(player.income, player_target, &"System Income", ResourceModifier.ResourceGroup.PLAYER)
 	
 
 func get_group_income(group : int) -> EconomyIncome:

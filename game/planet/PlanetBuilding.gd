@@ -19,6 +19,5 @@ func _on_day_passed():
 func free():
 	for mod in modifiers:
 		tile.modifiers.erase(mod)
-		mod.free()
 	
-	super.free()
+	queue_free()

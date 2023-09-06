@@ -1,7 +1,7 @@
 class_name EconomyIncome extends Node
 
-static var income : Array[float] = []
-static var income_modifiers : Array[ResourceModifier] = []
+var income : Array[float] = []
+var income_modifiers : Array[ResourceModifier] = []
 
 var types : int
 var resource_group : ResourceModifier.ResourceGroup
@@ -10,6 +10,7 @@ var resource_group : ResourceModifier.ResourceGroup
 func _init(size : int, group : ResourceModifier.ResourceGroup):
 	types = size
 	resource_group = group
+	Utilities.set_size_zero(income, types)
 
 
 # Income is calculated as (x [offsets] * y [additive]) * z [multiplicative]
@@ -19,23 +20,33 @@ func process_income() -> void:
 	expanded.fill(Vector3(0.0, 1.0, 1.0))
 	
 	
-	for res_mod in income_modifiers:
-		if res_mod.group != resource_group:
+	var i = 0
+	var j = income_modifiers.size()
+	while i < j:
+		var mod : ResourceModifier = income_modifiers[i]
+		
+		if mod.group != resource_group:
 			push_error("Resource modifier group does not match resource's")
 			continue
 		
-		match res_mod.operation:
+		match mod.operation:
 			
 			ResourceModifier.Operation.OFFSET:
-				expanded[res_mod.resource].x += res_mod.value
+				expanded[mod.resource].x += mod.value
 				
 			ResourceModifier.Operation.ADDITIVE:
-				expanded[res_mod.resource].y += res_mod.value
+				expanded[mod.resource].y += mod.value
 				
 			ResourceModifier.Operation.MULTIPLICATIVE:
-				expanded[res_mod.resource].z *= res_mod.value
+				expanded[mod.resource].z *= mod.value
 	
-	
+		if ResourceModifier.tick(mod):
+			income_modifiers.remove_at(i)
+			j -= 1
+			
+		else:
+			i += 1
+		
 	for type in range(types):
 		income[type] = expanded[type].x * expanded[type].y * expanded[type].z
 

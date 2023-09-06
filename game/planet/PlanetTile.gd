@@ -1,11 +1,9 @@
 class_name PlanetTile extends Node
 
-enum Flags {}
-
-@onready var manager : ResourceManager = $ResourceManager
+enum Flag {}
 
 var modifiers : Array[ResourceModifier] = []
-var flags : Array[Flags] = []
+var flags : Array[Flag] = []
 
 var building_primary : PlanetBuilding
 var building_buffer : PlanetBuilding
@@ -16,16 +14,20 @@ func _ready():
 	
 	
 func set_targets(planet_manager : ResourceManager):
-	manager.planet_target = planet_manager.planet
-	manager.system_target = planet_manager.system
-	manager.player_target = planet_manager.player
+	$ResourceManager.planet_target = planet_manager.planet.income_modifiers
+	$ResourceManager.system_target = planet_manager.system.income_modifiers
+	$ResourceManager.player_target = planet_manager.player.income_modifiers
 
 
 func add_modifier(mod : ResourceModifier):
 	modifiers.append(mod)
-	manager.get_group_income(mod.group).income_modifiers.append(mod)
+	$ResourceManager.get_group_income(mod.group).income_modifiers.append(mod)
 	
 
 func remove_modifier(mod : ResourceModifier):
 	modifiers.erase(mod)
-	manager.get_group_income(mod.group).income_modifiers.erase(mod)
+	$ResourceManager.get_group_income(mod.group).income_modifiers.erase(mod)
+	
+
+func process_resources():
+	$ResourceManager.process_income()

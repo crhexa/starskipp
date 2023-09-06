@@ -11,8 +11,14 @@
 process_mode = 1
 script = ExtResource("1_c55lr")
 
-[node name="SMSelector" parent="." instance=ExtResource("2_hcjkt")]
-z_index = 3
+[node name="PlanetResources" type="Node" parent="."]
+script = ExtResource("4_jwsnr")
+
+[node name="ResourceManager" type="Node" parent="."]
+script = ExtResource("5_6j8e2")
+
+[node name="TileManager" type="Node" parent="."]
+script = ExtResource("6_doam4")
 
 [node name="MainShader" type="ColorRect" parent="."]
 z_index = 2
@@ -30,11 +36,5 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 
-[node name="PlanetResources" type="Node" parent="."]
-script = ExtResource("4_jwsnr")
-
-[node name="ResourceManager" type="Node" parent="."]
-script = ExtResource("5_6j8e2")
-
-[node name="TileManager" type="Node" parent="."]
-script = ExtResource("6_doam4")
+[node name="SMSelector" parent="." instance=ExtResource("2_hcjkt")]
+z_index = 3
