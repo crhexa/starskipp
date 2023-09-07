@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=3 uid="uid://cevox047mu3bh"]
+
+[ext_resource type="FontFile" uid="uid://h685p7c0ncmc" path="res://assets/fonts/Heebo-VariableFont_wght.ttf" id="1_l1jvl"]
+[ext_resource type="Script" path="res://game/ui/ResourceDisplayNode.gd" id="1_sk4xx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dyya8"]
+bg_color = Color(0.329412, 0.329412, 0.329412, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 10
+
+[sub_resource type="Theme" id="Theme_6v5wb"]
+Panel/styles/panel = SubResource("StyleBoxFlat_dyya8")
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_jjq5x"]
+
+[sub_resource type="Theme" id="Theme_8dckd"]
+default_font = ExtResource("1_l1jvl")
+default_font_size = 16
+
+[node name="ResourceDisplayNode" type="Panel"]
+custom_minimum_size = Vector2(140, 32)
+theme = SubResource("Theme_6v5wb")
+script = ExtResource("1_sk4xx")
+positive_text = Color(0, 0.686275, 0, 1)
+negative_text = Color(0.752941, 0, 0, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 4.0
+offset_top = -12.0
+offset_right = 134.0
+offset_bottom = 12.0
+grow_vertical = 2
+theme_override_constants/separation = 6
+
+[node name="Icon" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_jjq5x")
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer"]
+custom_minimum_size = Vector2(100, 22)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = SubResource("Theme_8dckd")
+bbcode_enabled = true
+text = "999K + [color=\"green\"]999K[/color]"
+scroll_active = false

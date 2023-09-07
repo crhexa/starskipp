@@ -3,6 +3,8 @@ class_name EconomyResources extends Node
 var storage : Array[float] = []
 var storage_modifiers : Array[ResourceModifier] = []
 
+var income_ref : EconomyIncome
+
 # Defined by child classes
 var types : int
 var resource_group : ResourceModifier.ResourceGroup
@@ -12,7 +14,7 @@ func _init():
 	# "types" should be initialized in the child class before calling this method
 	Utilities.set_size_zero(storage, types)
 	
-
+	
 # Storage is calculated as (storage + additive) + offsets
 func process_storage(inc : EconomyIncome) -> void:
 	var expanded : Array[Vector2] = []
@@ -49,4 +51,7 @@ func process_storage(inc : EconomyIncome) -> void:
 	
 	for type in range(types):
 		storage[type] = expanded[type].x + (expanded[type].y * storage[type]) + inc.income[type]
+	
+	income_ref = inc
+	Signals.resource_update.emit(self)
 			

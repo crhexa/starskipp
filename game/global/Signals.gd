@@ -8,3 +8,6 @@ signal subpanel_focus_reset
 signal day_passed
 signal month_passed
 signal year_passed
+
+# Economy Signals
+signal resource_update

@@ -32,8 +32,11 @@ func _ready():
 	Signals.month_passed.connect(_on_month_passed)
 	
 	# Link resource manager
+	$SystemResources.income_ref = $ResourceManager.system
 	# $ResourceManager.player_target = player.manager.player.income_modifiers
 	
+	init_ui()
+		
 		
 func _process(_delta):
 	
@@ -90,7 +93,7 @@ func generate(sz: int = 6, sp : float = 700) -> void:
 		planet.primary = star
 		
 		planet.set_scale(Vector2(s, s))
-		add_child(planet)
+		add_child(planet) 
 		
 		
 		dist_from_star += randf_range(spacing - 100, spacing + 100)
@@ -100,3 +103,8 @@ func add_player():
 	var player = player_prototype.instantiate()
 	add_child(player)
 	player.start(player_position)
+
+
+func init_ui():
+	$CanvasLayer/Interface/ResourceDisplayBar.set_resource($SystemResources)
+	Signals.resource_update.emit($SystemResources)

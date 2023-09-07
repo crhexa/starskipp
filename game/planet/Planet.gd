@@ -30,6 +30,7 @@ var properties = {
 func _ready():
 	
 	# Link resource manager
+	$PlanetResources.income_ref = $ResourceManager.planet
 	$ResourceManager.system_target = system.manager.system.income_modifiers
 	$ResourceManager.player_target = system.manager.player.income_modifiers
 	
@@ -48,6 +49,21 @@ func _ready():
 	$ResourceManager.system.income_modifiers.append(ResourceModifier.new(
 		&"Starting Income", SystemResources.Type.NOBLE_GASES, ResourceModifier.ResourceGroup.SYSTEM,
 		ResourceModifier.Operation.OFFSET, 2.0, 5
+	))
+	
+	$ResourceManager.system.income_modifiers.append(ResourceModifier.new(
+		&"Starting Income", SystemResources.Type.NOBLE_GASES, ResourceModifier.ResourceGroup.SYSTEM,
+		ResourceModifier.Operation.ADDITIVE, 0.1, 5
+	))
+	
+	$ResourceManager.system.income_modifiers.append(ResourceModifier.new(
+		&"Starting Income", SystemResources.Type.NOBLE_GASES, ResourceModifier.ResourceGroup.SYSTEM,
+		ResourceModifier.Operation.OFFSET, 1, 4
+	))  
+	
+	$ResourceManager.system.income_modifiers.append(ResourceModifier.new(
+		&"Starting Income", SystemResources.Type.VOLATILES, ResourceModifier.ResourceGroup.SYSTEM,
+		ResourceModifier.Operation.OFFSET, -1, 5
 	))
 	
 	
