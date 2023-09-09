@@ -58,7 +58,7 @@ func _ready():
 	
 	$ResourceManager.system.income_modifiers.append(ResourceModifier.new(
 		&"Starting Income", SystemResources.Type.NOBLE_GASES, ResourceModifier.ResourceGroup.SYSTEM,
-		ResourceModifier.Operation.OFFSET, 1, 4
+		ResourceModifier.Operation.OFFSET, 1, Utilities.INT_MAX
 	))  
 	
 	$ResourceManager.system.income_modifiers.append(ResourceModifier.new(

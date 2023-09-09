@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://bu81vtt8dqc0l"]
+
+[ext_resource type="Script" path="res://game/ui/TimeDisplay.gd" id="1_1ngg1"]
+[ext_resource type="PackedScene" uid="uid://huefj38wpewe" path="res://game/ui/time_display_button.tscn" id="1_c5l2m"]
+
+[node name="TimeDisplay" type="VBoxContainer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -32.0
+offset_bottom = 12.0
+grow_horizontal = 0
+theme_override_constants/separation = 8
+script = ExtResource("1_1ngg1")
+
+[node name="TopTime" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TopTime"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+
+[node name="BottomButtons" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="TimeDisplayButton" parent="BottomButtons" instance=ExtResource("1_c5l2m")]
+layout_mode = 2
+
+[node name="TimeDisplayButton2" parent="BottomButtons" instance=ExtResource("1_c5l2m")]
+layout_mode = 2
+
+[node name="TimeDisplayButton3" parent="BottomButtons" instance=ExtResource("1_c5l2m")]
+layout_mode = 2
+
+[node name="TimeDisplayButton4" parent="BottomButtons" instance=ExtResource("1_c5l2m")]
+layout_mode = 2
+
+[node name="TimeDisplayButton5" parent="BottomButtons" instance=ExtResource("1_c5l2m")]
+layout_mode = 2

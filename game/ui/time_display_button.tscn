@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://huefj38wpewe"]
+
+[node name="TimeDisplayButton" type="Button"]
+custom_minimum_size = Vector2(32, 32)
+offset_right = 8.0
+offset_bottom = 8.0

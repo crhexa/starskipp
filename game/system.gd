@@ -44,7 +44,7 @@ func _process(_delta):
 		TimeController.swap_timescale()		
 	
 	elif Input.is_action_just_pressed("time_speed_up"):
-		TimeController.set_timescale(10.0)
+		TimeController.set_timescale(100.0)
 		
 	elif Input.is_action_just_pressed("time_slow_down"):
 		TimeController.set_timescale(1.0)
@@ -57,8 +57,6 @@ func _draw():
 		
 		
 func _on_month_passed():
-	print_debug("month ticked")
-	
 	for planet in planets:
 		planet.process_resources()
 	
