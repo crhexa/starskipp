@@ -4,10 +4,10 @@ var income : Array[float] = []
 var income_modifiers : Array[ResourceModifier] = []
 
 var types : int
-var resource_group : ResourceModifier.ResourceGroup
+var resource_group : ResourceModifier.Group
 
 
-func _init(size : int, group : ResourceModifier.ResourceGroup):
+func _init(size : int, group : ResourceModifier.Group):
 	types = size
 	resource_group = group
 	Utilities.set_size_zero(income, types)

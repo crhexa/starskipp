@@ -7,6 +7,7 @@ class_name Planet extends Node2D
 @export var orbital_speed : float = 0.1
 
 var t_offset : float
+var started : bool = false
 
 # Determines appearance and how the rest of the planet's properties
 enum Type { EMPTY, OCEAN_ROCKY, OCEAN_ICE, DRY_ROCKY, GAS_GIANT, ICE_GIANT }
@@ -44,30 +45,9 @@ func _ready():
 	# set the initial position before the first frame
 	orbit(t_offset)
 
-
-	# delete me
-	$ResourceManager.system.income_modifiers.append(ResourceModifier.new(
-		&"Starting Income", SystemResources.Type.NOBLE_GASES, ResourceModifier.ResourceGroup.SYSTEM,
-		ResourceModifier.Operation.OFFSET, 2.0, 5
-	))
-	
-	$ResourceManager.system.income_modifiers.append(ResourceModifier.new(
-		&"Starting Income", SystemResources.Type.NOBLE_GASES, ResourceModifier.ResourceGroup.SYSTEM,
-		ResourceModifier.Operation.ADDITIVE, 0.1, 5
-	))
-	
-	$ResourceManager.system.income_modifiers.append(ResourceModifier.new(
-		&"Starting Income", SystemResources.Type.NOBLE_GASES, ResourceModifier.ResourceGroup.SYSTEM,
-		ResourceModifier.Operation.OFFSET, 1, Utilities.INT_MAX
-	))  
-	
-	$ResourceManager.system.income_modifiers.append(ResourceModifier.new(
-		&"Starting Income", SystemResources.Type.VOLATILES, ResourceModifier.ResourceGroup.SYSTEM,
-		ResourceModifier.Operation.OFFSET, -1, 5
-	))
-	
 	
 func _process(_delta): 
+	first_process()
 	orbit(t_offset + TimeController.time)
 	
 	
@@ -90,3 +70,31 @@ func process_resources():
 	$TileManager.process_resources()
 	$ResourceManager.process_income() 
 	$PlanetResources.process_storage($ResourceManager.planet)
+
+
+func first_process():
+	if started:
+		return
+	
+	started = true
+		
+	# delete me
+	$ResourceManager.system.income_modifiers.append(ResourceModifier.new(
+		&"Starting Income", SystemResources.Type["NOBLE_GASES"]["id"], ResourceModifier.Group.SYSTEM,
+		ResourceModifier.Operation.OFFSET, 2.0, 5
+	))
+	
+	$ResourceManager.system.income_modifiers.append(ResourceModifier.new(
+		&"Starting Income", SystemResources.Type["NOBLE_GASES"]["id"], ResourceModifier.Group.SYSTEM,
+		ResourceModifier.Operation.ADDITIVE, 0.1, 5
+	))
+	
+	$ResourceManager.system.income_modifiers.append(ResourceModifier.new(
+		&"Starting Income", SystemResources.Type["NOBLE_GASES"]["id"], ResourceModifier.Group.SYSTEM,
+		ResourceModifier.Operation.OFFSET, 1, Utilities.INT_MAX
+	))  
+	
+	$ResourceManager.system.income_modifiers.append(ResourceModifier.new(
+		&"Starting Income", SystemResources.Type["VOLATILES"]["id"], ResourceModifier.Group.SYSTEM,
+		ResourceModifier.Operation.OFFSET, -1, 5
+	))

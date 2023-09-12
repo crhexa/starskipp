@@ -21,9 +21,9 @@ func set_resource(eco : EconomyResources) -> void:
 	types = economy.types
 	Signals.resource_update.connect(_on_resource_update)
 	
-	for i in range(types):
-		var node = node_prototype.instantiate()		
-		node.set_resource()
+	for t in economy.Type:
+		var node = node_prototype.instantiate()
 		nodes.append(node)
 		container.add_child(node)
+		node.set_resource(economy.Type[t]["icon"])
 

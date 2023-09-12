@@ -1,6 +1,6 @@
 class_name ResourceModifier extends RefCounted
 
-enum ResourceGroup { PLANET, SYSTEM, PLAYER }
+enum Group { PLANET, SYSTEM, PLAYER }
 enum Operation { OFFSET, ADDITIVE, MULTIPLICATIVE }
 
 
@@ -11,7 +11,7 @@ var name : StringName
 var resource : int
 
 # What object the resource is associated with
-var group : ResourceGroup
+var group : Group
 
 # How the resource will be modified
 var operation : Operation
@@ -23,7 +23,7 @@ var value : float
 var duration : int
 
 
-func _init(n : StringName, r : int, rg : ResourceGroup, o : Operation, v : float, d : int):
+func _init(n : StringName, r : int, rg : Group, o : Operation, v : float, d : int):
 	name = n
 	resource = r
 	group = rg
@@ -46,4 +46,14 @@ static func tick(mod : ResourceModifier) -> bool:
 	return false
 	
 	
+static func get_group_ref(g : int):
+	if g == Group.PLANET:
+		return PlanetResources
 	
+	if g == Group.SYSTEM:
+		return SystemResources
+	
+	if g == Group.PLAYER:
+		return PlayerResources
+	
+	return null

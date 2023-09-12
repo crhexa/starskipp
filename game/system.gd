@@ -27,7 +27,6 @@ func _ready():
 	Engine.set_max_fps(120)
 	generate()
 
-	
 	TimeController.swap_timescale()
 	Signals.month_passed.connect(_on_month_passed)
 	

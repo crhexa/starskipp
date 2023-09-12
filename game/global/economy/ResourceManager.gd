@@ -15,12 +15,12 @@ var player_target : Array[ResourceModifier]
 
 func _ready():
 	if flag < 1:
-		planet = EconomyIncome.new(PlanetResources.Type.size(), ResourceModifier.ResourceGroup.PLANET)
+		planet = EconomyIncome.new(PlanetResources.Type.size(), ResourceModifier.Group.PLANET)
 	
 	if flag < 2:
-		system = EconomyIncome.new(SystemResources.Type.size(), ResourceModifier.ResourceGroup.SYSTEM)
+		system = EconomyIncome.new(SystemResources.Type.size(), ResourceModifier.Group.SYSTEM)
 		
-	player = EconomyIncome.new(PlayerResources.Type.size(), ResourceModifier.ResourceGroup.PLAYER)
+	player = EconomyIncome.new(PlayerResources.Type.size(), ResourceModifier.Group.PLAYER)
 
 
 # Creates resource modifiers from an income array
@@ -38,26 +38,26 @@ func propagate(src : Array[float], tgt : Array[ResourceModifier], mod_name: Stri
 func process_income():
 	if planet != null and planet_target != null:
 		planet.process_income()
-		propagate(planet.income, planet_target, &"Tile Income", ResourceModifier.ResourceGroup.PLANET)
+		propagate(planet.income, planet_target, &"Tile Income", ResourceModifier.Group.PLANET)
 		
 	if system != null and system_target != null:
 		system.process_income()
-		propagate(system.income, system_target, &"Planet Income", ResourceModifier.ResourceGroup.SYSTEM)
+		propagate(system.income, system_target, &"Planet Income", ResourceModifier.Group.SYSTEM)
 	
 	if player != null and player_target != null:	
 		player.process_income()
-		propagate(player.income, player_target, &"System Income", ResourceModifier.ResourceGroup.PLAYER)
+		propagate(player.income, player_target, &"System Income", ResourceModifier.Group.PLAYER)
 	
 
 func get_group_income(group : int) -> EconomyIncome:
 	match group:
-		ResourceModifier.ResourceGroup.PLANET:
+		ResourceModifier.Group.PLANET:
 			return planet
 			
-		ResourceModifier.ResourceGroup.SYSTEM:
+		ResourceModifier.Group.SYSTEM:
 			return system
 			
-		ResourceModifier.ResourceGroup.PLAYER:
+		ResourceModifier.Group.PLAYER:
 			return player
 	
 	push_error("\"get_group_income()\" failed: invalid group index")

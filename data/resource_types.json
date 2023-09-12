@@ -1,0 +1,60 @@
+{
+	"Planet": {
+		
+	},
+
+	"System": {
+		"BULK_MATERIAL": {
+			"id": 0,
+			"name": "Bulk Material",
+			"description": "The most common minerals, metals, and compounds (organic or otherwise), whose elements account for the majority of the mass in the crusts of terrestrial bodies. Processed and refined into materials ready to be used for construction or industrial feedstock, among countless other uses.",
+			"icon_path": ""
+	  	},
+	  	"VOLATILES": {
+			"id": 1,
+			"name": "Volatiles",
+			"description": "Hydrogen gas, hydrocarbons, and other compounds with low boiling points, most often stored in liquid form under high pressures and low temperatures. Mainy used as feedstock for creating synthetic polymers and millions of others compounds.",
+			"icon_path": ""
+	  	},
+	  	"NOBLE_METALS": {
+			"id": 2,
+			"name": "Noble Metals",
+			"description": "The elements copper, silver, and gold, notable for being capable of naturally occurring in pure form, and for originating in the supernovae of supermassive stars. Amply used in producing electronics ranging from primitive circuits to supercomputers.",
+			"icon_path": ""
+	  	},
+	  	"HALOGENS": {
+			"id": 3,
+			"name": "Halogens",
+			"description": "Extremely reactive elements found naturally in mineral or salt form, commonly bound to a metal. Crucial chemical reactants and precursors and necessary for complex biological organisms.",
+			"icon_path": ""
+	  	},
+	  	"NOBLE_GASES": {
+			"id": 4,
+			"name": "Noble Gases",
+			"description": "The nonreactivity of noble gases lends their use towards preventing a vast number of undesirable chemical reactions in atmospheric environments.",
+			"icon_path": ""
+	  	},
+	  	"RARE_EARTHS": {
+			"id": 5,
+			"name": "Rare Earths",
+			"description": "Rare earths are a broad category of elements named for their lack of deposits with significant purity, rather than any lack of abundance in the universe. It can be most commonly found in magnets, superconductors, and microchips.",
+			"icon_path": ""
+	  	},
+	  	"RADIOISOTOPES": {
+			"id": 6,
+			"name": "Radioisotopes",
+			"description": "Radioactive isotopes of a variety of elements, most commonly referring to tritium, thorium, and uranium. It goes without saying that the basis of its applications is the potential to release vast amounts of energy.",
+			"icon_path": ""
+	  	},
+	  	"PLATINOIDS": {
+			"id": 7,
+			"name": "Platinoids",
+			"description": "The platinoids consist of the elements ruthenium, rhodium, palladium, osmium, iridium, and of course, platinum. Despite occuring in miniscule natural abundance relative to the rest of the elements, it finds crucial applications in exotic alloys and chemcial catalysts.",
+			"icon_path": "res://assets/icons/resources/planet_platinoids.svg"
+	  	}
+	},
+
+	"Player": {
+		
+	}
+}

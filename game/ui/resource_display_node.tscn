@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cevox047mu3bh"]
+[gd_scene load_steps=6 format=3 uid="uid://cevox047mu3bh"]
 
 [ext_resource type="FontFile" uid="uid://h685p7c0ncmc" path="res://assets/fonts/Heebo-VariableFont_wght.ttf" id="1_l1jvl"]
 [ext_resource type="Script" path="res://game/ui/ResourceDisplayNode.gd" id="1_sk4xx"]
@@ -13,8 +13,6 @@ corner_detail = 10
 
 [sub_resource type="Theme" id="Theme_6v5wb"]
 Panel/styles/panel = SubResource("StyleBoxFlat_dyya8")
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_jjq5x"]
 
 [sub_resource type="Theme" id="Theme_8dckd"]
 default_font = ExtResource("1_l1jvl")
@@ -37,12 +35,11 @@ offset_top = -12.0
 offset_right = 134.0
 offset_bottom = 12.0
 grow_vertical = 2
-theme_override_constants/separation = 6
+theme_override_constants/separation = 4
 
 [node name="Icon" type="TextureRect" parent="HBoxContainer"]
 custom_minimum_size = Vector2(24, 24)
 layout_mode = 2
-texture = SubResource("PlaceholderTexture2D_jjq5x")
 stretch_mode = 5
 
 [node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer"]

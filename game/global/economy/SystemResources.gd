@@ -1,10 +1,12 @@
 class_name SystemResources extends EconomyResources
 
-enum Type { BULK_MINERALS, HALOGENS, VOLATILES, NOBLE_METALS, NOBLE_GASES, PLATINOIDS, RADIOISOTOPES }
-
+const group_name = "System"
+static var Type : Dictionary
 
 func _init():
 	types = Type.size()
-	resource_group = ResourceModifier.ResourceGroup.SYSTEM
+	resource_group = ResourceModifier.Group.SYSTEM
 	super._init()
-	
+
+static func config(config_dict : Dictionary):
+	Type = config_dict.get(group_name)

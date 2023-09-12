@@ -1,6 +1,7 @@
 class_name ResourceDisplayNode extends Panel
 
 @onready var label = $HBoxContainer/RichTextLabel
+@onready var icon = $HBoxContainer/Icon
 @onready var positive_html : String = positive_text.to_html(false)
 @onready var negative_html : String = negative_text.to_html(false)
 
@@ -10,10 +11,8 @@ class_name ResourceDisplayNode extends Panel
 static var format = "[color=%s] %s %s[/color]"
 
  
-
-
-func set_resource():
-	pass
+func set_resource(i : Resource):
+	icon.set_texture(i as Texture2D)
 	
 
 func update_values(storage : float, income : float) -> void:

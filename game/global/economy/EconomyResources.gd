@@ -7,7 +7,7 @@ var income_ref : EconomyIncome
 
 # Defined by child classes
 var types : int
-var resource_group : ResourceModifier.ResourceGroup
+var resource_group : ResourceModifier.Group
 
 
 func _init():

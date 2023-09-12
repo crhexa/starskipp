@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bvn42dkbc7qvg"]
+[gd_scene load_steps=9 format=3 uid="uid://bvn42dkbc7qvg"]
 
 [ext_resource type="Script" path="res://game/System.gd" id="1_p21j8"]
 [ext_resource type="Texture2D" uid="uid://8b5q5pqom7n6" path="res://assets/sprites/background.png" id="2_3fxwv"]
@@ -9,14 +9,12 @@
 [ext_resource type="PackedScene" uid="uid://bftqeh1wqqhv8" path="res://game/ui/resource_display_bar.tscn" id="7_bv280"]
 [ext_resource type="PackedScene" uid="uid://bu81vtt8dqc0l" path="res://game/ui/time_display.tscn" id="8_177xm"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ugfl6"]
-
 [node name="System" type="Node2D"]
 process_mode = 3
 z_index = -10
-material = SubResource("ShaderMaterial_ugfl6")
 script = ExtResource("1_p21j8")
 orbit_color = Color(1, 1, 1, 1)
+orbit_width = null
 
 [node name="SystemResources" type="Node" parent="."]
 script = ExtResource("2_yv7bo")
@@ -26,7 +24,6 @@ script = ExtResource("2_ivjnu")
 flag = 1
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-visible = false
 offset = Vector2(1920, 1080)
 transform = Transform2D(1, 0, 0, 1, 1920, 1080)
 
@@ -34,7 +31,8 @@ transform = Transform2D(1, 0, 0, 1, 1920, 1080)
 motion_scale = Vector2(0.25, 0.25)
 motion_mirroring = Vector2(3840, 2160)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+[node name="Background" type="TextureRect" parent="ParallaxBackground/ParallaxLayer"]
+texture_repeat = 2
 texture = ExtResource("2_3fxwv")
 
 [node name="Camera2D" type="Camera2D" parent="."]
