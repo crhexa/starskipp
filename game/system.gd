@@ -35,7 +35,9 @@ func _ready():
 	# $ResourceManager.player_target = player.manager.player.income_modifiers
 	
 	init_ui()
-		
+	var foo = CondExpr.new()
+	foo.execute("")
+	
 		
 func _process(_delta):
 	

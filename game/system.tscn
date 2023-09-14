@@ -14,7 +14,6 @@ process_mode = 3
 z_index = -10
 script = ExtResource("1_p21j8")
 orbit_color = Color(1, 1, 1, 1)
-orbit_width = null
 
 [node name="SystemResources" type="Node" parent="."]
 script = ExtResource("2_yv7bo")
