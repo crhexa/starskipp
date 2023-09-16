@@ -20,14 +20,15 @@ config/icon="res://icon.svg"
 TimeController="*res://game/global/TimeController.gd"
 Signals="*res://game/global/Signals.gd"
 FileManager="*res://game/global/FileManager.gd"
+ResearchPool="*res://game/global/research/ResearchPool.gd"
+EventPool="*res://game/global/event/EventPool.gd"
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/mode=3
 window/size/resizable=false
-window/stretch/mode="viewport"
+window/stretch/mode="canvas_items"
 
 [editor_plugins]
 

@@ -23,6 +23,7 @@ script = ExtResource("2_ivjnu")
 flag = 1
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+visible = false
 offset = Vector2(1920, 1080)
 transform = Transform2D(1, 0, 0, 1, 1920, 1080)
 
