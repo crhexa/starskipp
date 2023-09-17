@@ -1,4 +1,4 @@
-class_name ExprParser extends Node
+extends Node
 
 const operators = [
 	"NOT", "AND", "OR", "GT", "GTE", "LT", "LTE", "EQ", "NE",

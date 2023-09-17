@@ -1,58 +1,58 @@
-extends Node
+class_name ResourceParser extends Node
 
-const types : String = "res://data/resource_types.json"
-var placeholder : PlaceholderTexture2D = PlaceholderTexture2D.new()
-var types_dict : Dictionary
+var placeholder : Texture2D
+var loaded : Dictionary
 
 
 func _init():
-	load_resource_types()
+	placeholder = PlaceholderTexture2D.new()
 	
 
-func load_resource_types() -> void:
-	if not FileAccess.file_exists(types):
+func load_types(fp : String) -> bool:
+	if not FileAccess.file_exists(fp):
 		# CTD gracefully and log error
-		push_error("J")
-		Utilities.signal_termination(get_tree())
-		pass
+		push_error("todo")
+		return false
 		
-	var file = FileAccess.open(types, FileAccess.READ)
+	var file = FileAccess.open(fp, FileAccess.READ)
 	var json = JSON.new()
 	var error = json.parse(file.get_as_text())
 	
 	if error != OK:
-		push_error("J")
-		Utilities.signal_termination(get_tree())
+		push_error("todo")
+		return false
 		
 	if typeof(json.data) != TYPE_DICTIONARY:
 		# CTD and log json unexpected type error
-		push_error("J")
-		Utilities.signal_termination(get_tree())
+		push_error("todo")
+		return false
 		
-	types_dict = json.data 
+	loaded = json.data 
 	for group in range(ResourceModifier.Group.size()):
 		var group_class = ResourceModifier.get_group_ref(group)
-		var group_dict : Dictionary = types_dict.get(group_class.group_name)
+		var group_dict : Dictionary = loaded.get(group_class.group_name)
 		
 		if group_dict == null:
 			# CTD and log missing dict key error
-			push_error("J")
-			Utilities.signal_termination(get_tree())
+			push_error("todo")
+			return false
 		
 		if typeof(group_dict) != TYPE_DICTIONARY:
 			# CTD and log json unexpected type error
-			push_error("J")
-			Utilities.signal_termination(get_tree())
+			push_error("todo")
+			return false
 		
-		group_class.config(types_dict)
+		group_class.config(loaded)
 		for key in group_class.Type:
 			var type = group_class.Type[key]
 			if typeof(type) != TYPE_DICTIONARY:
 				# CTD and log json unexpected type error
-				push_error("J")
-				Utilities.signal_termination(get_tree())
+				push_error("todo")
+				return false
 				
 			load_icon(type)
+	
+	return true
 		
 
 func load_icon(dict : Dictionary) -> void:

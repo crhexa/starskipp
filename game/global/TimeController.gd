@@ -57,6 +57,7 @@ func _ready():
 	process_priority = -1
 	current_date = Date.new()
 
+
 func _process(delta):
 	if not is_zero_approx(timescale):
 		delta_t = delta * timescale
@@ -83,6 +84,9 @@ func set_timescale(scale : float):
 		
 	timescale = scale
 	
-	
+
+func reset(new_date : Date):
+	current_date = new_date
+	time = 0
 	
 	

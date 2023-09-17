@@ -11,17 +11,19 @@ config_version=5
 [application]
 
 config/name="starskipp"
-run/main_scene="res://game/system.tscn"
+run/main_scene="res://game/main.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
+run/max_fps=120
 config/icon="res://icon.svg"
 
 [autoload]
 
 TimeController="*res://game/global/TimeController.gd"
 Signals="*res://game/global/Signals.gd"
-FileManager="*res://game/global/FileManager.gd"
 ResearchPool="*res://game/global/research/ResearchPool.gd"
 EventPool="*res://game/global/event/EventPool.gd"
+DataLoader="*res://game/global/loading/DataLoader.gd"
+ExprParser="*res://game/global/loading/ExprParser.gd"
 
 [display]
 

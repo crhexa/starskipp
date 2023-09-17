@@ -16,8 +16,8 @@ func define(id : String, obj : ResearchObject):
 		
 	objects[id] = obj
 	if obj is ResearchObject.EnhanceObject:
-		enhancements[id] = objects
+		enhancements[id] = obj
 		
 	elif obj is ResearchObject.PreceptObject:
-		precepts[id]
+		precepts[id] = obj
 	

@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://bginiit640lwp"]
+
+[ext_resource type="Script" path="res://game/Main.gd" id="1_k0al4"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_k0al4")
+
+[node name="MainMenu" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MainButtons" type="VBoxContainer" parent="MainMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 790.0
+offset_top = 470.0
+offset_right = 1090.0
+offset_bottom = 570.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="MainMenu/MainButtons"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+text = "PLAY"
+
+[connection signal="button_up" from="MainMenu/MainButtons/Button" to="." method="_on_play_button_up"]

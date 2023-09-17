@@ -24,11 +24,11 @@ var planets : Array[Node2D]
 
 
 func _ready():
-	Engine.set_max_fps(120)
 	generate()
-
-	TimeController.swap_timescale()
 	Signals.month_passed.connect(_on_month_passed)
+	
+	TimeController.reset(TimeController.Date.new(1, 1, 420, 1))
+	TimeController.swap_timescale()
 	
 	# Link resource manager
 	$SystemResources.income_ref = $ResourceManager.system
@@ -105,3 +105,4 @@ func add_player():
 func init_ui():
 	$CanvasLayer/Interface/ResourceDisplayBar.set_resource($SystemResources)
 	Signals.resource_update.emit($SystemResources)
+	$CanvasLayer/Interface/TimeDisplay.update_time(TimeController.current_date)
