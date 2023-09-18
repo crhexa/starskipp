@@ -6,12 +6,12 @@ extends Node
 
 
 func load_data() -> bool:
-	var error = false
+	var valid = true
 	
-	error = error or resource.load_types("res://data/resource_types.json")
+	valid = valid and resource.load_types("res://data/resource_types.json")
 		
-	error = error or research.load_objects("res://data/research")
+	valid = valid and research.load_dir("res://data/research")
 		
-	error = error or event.load_objects("res://data/events")
+	valid = valid and event.load_dir("res://data/events")
 		
-	return error
+	return valid

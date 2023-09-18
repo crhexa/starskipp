@@ -36,6 +36,11 @@ func _ready():
 	
 	init_ui()
 	
+	var obj := ResearchPool.lookup("RESEARCH_STARTING")
+	print("starting research | hidden : " + str(obj.hidden) + ", can start research: " + str(obj.activation.evaluate()))
+	obj = ResearchPool.lookup("RESEARCH_STARTING_NEXT")
+	print("starting research | hidden : " + str(obj.hidden) + ", can start research: " + str(obj.activation.evaluate()))
+		
 		
 func _process(_delta):
 	

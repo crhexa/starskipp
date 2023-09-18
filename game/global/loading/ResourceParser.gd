@@ -1,12 +1,8 @@
 class_name ResourceParser extends Node
 
-var placeholder : Texture2D
+var placeholder := PlaceholderTexture2D.new()
 var loaded : Dictionary
 
-
-func _init():
-	placeholder = PlaceholderTexture2D.new()
-	
 
 func load_types(fp : String) -> bool:
 	if not FileAccess.file_exists(fp):

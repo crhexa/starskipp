@@ -104,8 +104,8 @@ func parse(expr_str : String) -> Expr:
 	return null
 
 
-func parse_effects(effect_strs : Array[String]) -> Array[ExprEffect]:
-	var results = []
+func parse_effects(effect_strs : Array) -> Array[ExprEffect]:
+	var results : Array[ExprEffect] = []
 	
 	for effect_str in effect_strs:
 		results.push_back(parse_effect(effect_str))

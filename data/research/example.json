@@ -1,0 +1,38 @@
+{
+    "RESEARCH_STARTING": {
+        "type": "RESEARCH",
+        "hidden": false,
+        "activation": "HAS_RESEARCH(RESEARCH_STARTING)",
+        "resource_cost": {
+            "Research Cost": {
+                "resource": 0,
+                "group": 1,
+                "operation": 0,
+                "value" : -10.0,
+                "duration" : 1
+            }
+        },
+        "progress": 0,
+        "effect": ["SET_RESEARCH_VISIBLE(RESEARCH_STARTING_NEXT)"],
+        "icon_path": "",
+        "description": "Starting research"
+    },
+    "RESEARCH_STARTING_NEXT": {
+        "type": "RESEARCH",
+        "hidden": true,
+        "activation": "HAS_RESEARCH(RESEARCH_STARTING)",
+        "resource_cost": {
+            "Research Cost": {
+                "resource": 4,
+                "group": 1,
+                "operation": 0,
+                "value" : -15.0,
+                "duration" : 1
+            }
+        },
+        "progress": 2000,
+        "effect": [],
+        "icon_path": "",
+        "description": "Second research"
+    }
+}

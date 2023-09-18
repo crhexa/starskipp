@@ -87,6 +87,7 @@ func set_timescale(scale : float):
 
 func reset(new_date : Date):
 	current_date = new_date
-	time = 0
+	time = 0.0
+	timer = 0.0
 	
 	

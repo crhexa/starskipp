@@ -24,6 +24,7 @@ ResearchPool="*res://game/global/research/ResearchPool.gd"
 EventPool="*res://game/global/event/EventPool.gd"
 DataLoader="*res://game/global/loading/DataLoader.gd"
 ExprParser="*res://game/global/loading/ExprParser.gd"
+ResModParser="*res://game/global/loading/ResModParser.gd"
 
 [display]
 
