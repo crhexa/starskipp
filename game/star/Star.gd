@@ -13,7 +13,7 @@ var properties = {
 
 
 func _ready():
-	$SMSelector.set_outline_radius($MainShader.size.x * 0.6 * scale.x)
+	$SMSelector.set_outline_radius($MainShader.size.x * 0.5)
 	$MainShader.material.set_shader_parameter("time", 0)
 
 

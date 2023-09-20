@@ -1,6 +1,7 @@
 extends Area2D
 
 @export var outline_radius : int = 100
+@export var outline_padding : int = 15
 @export var width : int = 3
 @export var detail : int = 64
 @export var highlight_color : Color
@@ -29,6 +30,7 @@ func _on_mouse_exited():
 	color = normal_color
 	queue_redraw()
 
+
 func _on_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
@@ -40,6 +42,6 @@ func _on_input_event(_viewport, event, _shape_idx):
 			
 
 func set_outline_radius(rad : int):
-	outline_radius = rad
-	collider.shape.radius = rad
+	outline_radius = rad + outline_padding
+	collider.shape.radius = rad + outline_padding
 

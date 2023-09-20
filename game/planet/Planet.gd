@@ -39,7 +39,7 @@ func _ready():
 	# Set rendering parameters
 	t_offset = randf_range(0, 1000000)
 	$MainShader.material.set_shader_parameter("seed", randf_range(1.0, 10.0))
-	$SMSelector.set_outline_radius($MainShader.size.x * 0.5 * scale.x)
+	$SMSelector.set_outline_radius($MainShader.size.x * 0.5)
 	# issue no. 2
 	
 	# set the initial position before the first frame

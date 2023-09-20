@@ -29,6 +29,7 @@ process_mode = 1
 script = ExtResource("1_7ar3c")
 
 [node name="SMSelector" parent="." instance=ExtResource("2_p0yep")]
+outline_padding = 30
 
 [node name="MainShader" type="ColorRect" parent="."]
 z_index = 3
