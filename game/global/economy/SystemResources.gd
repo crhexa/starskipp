@@ -4,6 +4,7 @@ const group_name = "System"
 static var Type : Dictionary
 
 func _init():
+	GlobalResources.system = self
 	types = Type.size()
 	resource_group = ResourceModifier.Group.SYSTEM
 	super._init()

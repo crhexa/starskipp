@@ -1,0 +1,42 @@
+{
+    "EVENT_STARTING": {
+        "title": "Your adventure begins...",
+        "text": "Take my sword! And my axe!",
+        "executed": false,
+        "trigger": "",
+        "mtte": 3600,
+        "image_path": "",
+        "responses": {
+            "RESPONSE_OKAY": {
+                "text": "Okay.",
+                "tooltip": "(Do nothing)",
+                "condition": "",
+                "effect": ["ACTIVATE_EVENT(EVENT_MAIN_1)"],
+                "resource_effect": {
+                    "Did nothing...": {
+                        "resource": 0,
+                        "group": 1,
+                        "operation": 0,
+                        "value" : 100,
+                        "duration" : 1
+                    }
+                }
+            },
+            "RESPONSE_NOT_OKAY": {
+                "text": "What? I didn't consent to this.",
+                "tooltip": "(Do nothing and frown)",
+                "condition": "",
+                "effect": ["ACTIVATE_EVENT(EVENT_MAIN_2)"],
+                "resource_effect": {
+                    "Did nothing...": {
+                        "resource": 0,
+                        "group": 1,
+                        "operation": 0,
+                        "value" : -100,
+                        "duration" : 1
+                    }
+                }
+            }
+        }
+    }
+}

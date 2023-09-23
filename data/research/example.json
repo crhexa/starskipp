@@ -2,7 +2,7 @@
     "RESEARCH_STARTING": {
         "type": "RESEARCH",
         "hidden": false,
-        "activation": "HAS_RESEARCH(RESEARCH_STARTING)",
+        "activation": "",
         "resource_cost": {
             "Research Cost": {
                 "resource": 0,

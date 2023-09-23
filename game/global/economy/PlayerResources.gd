@@ -4,6 +4,7 @@ const group_name = "Player"
 static var Type : Dictionary
 
 func _init():
+	GlobalResources.player = self
 	types = Type.size()
 	resource_group = ResourceModifier.Group.PLAYER
 	super._init()

@@ -2,7 +2,7 @@ class_name Expr extends RefCounted
 
 var arg1
 
-func _init(a : Expr):
+func _init(a : Expr = null):
 	arg1 = a
 	
 # Overridden by other classes
@@ -10,6 +10,11 @@ func evaluate() -> Variant:
 	return
 
 
+class TRUE extends Expr:
+	func evaluate() -> Variant:
+		return true
+		
+		
 class NOT extends Expr:
 	func evaluate() -> Variant:
 		return not (arg1 as bool)
@@ -56,6 +61,12 @@ class HAS_SYSTEM_FLAG extends HAS_EVENT:
 class HAS_PLANET_FLAG extends HAS_EVENT:
 	func evaluate() -> Variant:
 		return false
+		
+
+class GET_SYSTEM_RESOURCE extends HAS_EVENT:
+	func evaluate() -> Variant:
+		var id = SystemResources.Type[arg1]["id"]
+		return GlobalResources.system.storage[id]
 		
 		
 # Base class for 2 argument expressions

@@ -32,6 +32,9 @@ func _init():
 
 # Parse a string into an Expr tree
 func parse(expr_str : String) -> Expr:
+	if expr_str.is_empty():
+		return Expr.TRUE.new()
+	
 	var result : RegExMatch = match_operation.search(expr_str)
 	var operand : String = result.get_string(1)
 	var inner : String = result.get_string(2)
@@ -64,6 +67,9 @@ func parse(expr_str : String) -> Expr:
 		
 	elif operand == "HAS_PLANET_FLAG":
 		return Expr.HAS_PLANET_FLAG.new(inner)
+		
+	elif operand == "GET_SYSTEM_RESOURCE":
+		return Expr.GET_SYSTEM_RESOURCE.new(inner)
 		
 		
 	# Look for two arguments separated by a comma
@@ -129,7 +135,10 @@ func parse_effect(effect_str : String) -> ExprEffect:
 	if operand == "SET_RESEARCH_VISIBLE":
 		return ExprEffect.SET_RESEARCH_VISIBLE.new(inner)
 		
+	if operand == "ACTIVATE_EVENT":
+		return null
 		
-		
+	if operand == "":
+		return null
 		
 	return null

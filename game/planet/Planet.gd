@@ -80,21 +80,21 @@ func first_process():
 		
 	# delete me
 	$ResourceManager.system.income_modifiers.append(ResourceModifier.new(
-		&"Starting Income", SystemResources.Type["NOBLE_GASES"]["id"], ResourceModifier.Group.SYSTEM,
+		"Starting Income", SystemResources.Type["NOBLE_GASES"]["id"], ResourceModifier.Group.SYSTEM,
 		ResourceModifier.Operation.OFFSET, 2.0, 5
 	))
 	
 	$ResourceManager.system.income_modifiers.append(ResourceModifier.new(
-		&"Starting Income", SystemResources.Type["NOBLE_GASES"]["id"], ResourceModifier.Group.SYSTEM,
+		"Starting Income", SystemResources.Type["NOBLE_GASES"]["id"], ResourceModifier.Group.SYSTEM,
 		ResourceModifier.Operation.ADDITIVE, 0.1, 5
 	))
 	
 	$ResourceManager.system.income_modifiers.append(ResourceModifier.new(
-		&"Starting Income", SystemResources.Type["NOBLE_GASES"]["id"], ResourceModifier.Group.SYSTEM,
+		"Starting Income", SystemResources.Type["NOBLE_GASES"]["id"], ResourceModifier.Group.SYSTEM,
 		ResourceModifier.Operation.OFFSET, 1, Utilities.INT_MAX
 	))  
 	
 	$ResourceManager.system.income_modifiers.append(ResourceModifier.new(
-		&"Starting Income", SystemResources.Type["VOLATILES"]["id"], ResourceModifier.Group.SYSTEM,
+		"Starting Income", SystemResources.Type["VOLATILES"]["id"], ResourceModifier.Group.SYSTEM,
 		ResourceModifier.Operation.OFFSET, -1, 5
 	))

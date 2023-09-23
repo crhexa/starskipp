@@ -5,7 +5,7 @@ enum Operation { OFFSET, ADDITIVE, MULTIPLICATIVE }
 
 
 # The name (source) of the modifier
-var name : StringName
+var name : String
 
 # The resource being modified
 var resource : int
@@ -23,7 +23,7 @@ var value : float
 var duration : int
 
 
-func _init(n : StringName, r : int, rg : Group, o : Operation, v : float, d : int):
+func _init(n : String, r : int, rg : Group, o : Operation, v : float, d : int):
 	name = n
 	resource = r
 	group = rg
