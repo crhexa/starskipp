@@ -1,6 +1,5 @@
 class_name System extends Node2D
 
-@onready var player_prototype = preload("res://game/player.tscn")
 @onready var star_prototype = preload("res://game/star/star.tscn")
 @onready var planet_prototype = preload("res://game/planet/planet.tscn")
 
@@ -17,7 +16,6 @@ var spacing : float			# Average space between the orbits of bodies
 
 
 # Instance variables
-var player_position := Vector2.ZERO
 var star : Node2D
 var planets : Array[Node2D]
 
@@ -80,7 +78,6 @@ func generate(sz: int = 6, sp : float = 700) -> void:
 	
 	# Place player spawn point
 	var dist_from_star : float = 1000
-	player_position = Vector2(dist_from_star * 0.75, 0).rotated(randf_range(0, TAU))
 	
 	# Generate bodies
 	for i in range(size):
@@ -99,12 +96,6 @@ func generate(sz: int = 6, sp : float = 700) -> void:
 		
 		
 		dist_from_star += randf_range(spacing - 100, spacing + 100)
-	
-	
-func add_player():
-	var player = player_prototype.instantiate()
-	add_child(player)
-	player.start(player_position)
 
 
 func init_ui():
