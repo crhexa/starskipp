@@ -1,5 +1,6 @@
 {
     "RESEARCH_STARTING": {
+        "title": "Starting Research",
         "type": "RESEARCH",
         "hidden": false,
         "activation": "",
@@ -18,6 +19,7 @@
         "description": "Starting research"
     },
     "RESEARCH_STARTING_NEXT": {
+        "title": "The Next Starting Research",
         "type": "RESEARCH",
         "hidden": true,
         "activation": "HAS_RESEARCH(RESEARCH_STARTING)",

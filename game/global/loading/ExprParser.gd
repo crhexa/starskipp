@@ -6,7 +6,7 @@ const operators = [
 ]
 
 const effect_operators = [
-	"SET_RESEARCH_HIDDEN", "SET_RESEARCH_VISIBLE"
+	"SET_RESEARCH_HIDDEN", "SET_RESEARCH_VISIBLE", "ACTIVATE_EVENT"
 ]
 
 
@@ -114,7 +114,9 @@ func parse_effects(effect_strs : Array) -> Array[ExprEffect]:
 	var results : Array[ExprEffect] = []
 	
 	for effect_str in effect_strs:
-		results.push_back(parse_effect(effect_str))
+		var effect = parse_effect(effect_str)
+		if effect != null:
+			results.push_back(effect)
 	
 	return results
 	

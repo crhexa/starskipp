@@ -15,6 +15,7 @@ var resource_effect : Array[ResourceModifier]		# Resource modifier to activate o
 
 # Display
 var icon : Texture2D
+var title : String
 var description : String
 
 

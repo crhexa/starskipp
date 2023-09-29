@@ -19,6 +19,7 @@ var responses : Array[EventResponse]
 
 # Display
 var image : Texture2D
+var title : String
 var text : String
 
 
